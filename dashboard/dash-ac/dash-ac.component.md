@@ -1,46 +1,51 @@
-<div class="dashboard__card"  [formGroup]="filtersForm"  #customCard>
-  <dashboard-card-title [title]="'Active Candidates'">
-      <input-dropdown 
-                      [form]="filtersForm"
-                      formControlName="requisitions"
-                      [data]="requisitionsData"
-                      [placeholder]="'Choose Requisition'"
-                      [floatLabelType]="'Never'"
-                      (optionSelected)="onDropDownChange($event)"
-                      ></input-dropdown>
-  </dashboard-card-title>
-  <dashboard-card-body>
-  <div id="custom-grid">
-  <talent-grid
-    #grid
-    [allowSorting]="true"
-    [allowPaging]="true"
-    [allowNew]="false"
-    [allowFiltering]="false"
-    [allowBulkActions]="false"
-    [allowSearch]="false"
-    [allowExport]="false"
-    [gridHeight]="customGridHeight"
-    [data]="candidatesListData"
-    (initialized)="initialized($event)"
-    (selected)="selected($event)"
-    (dataStateChange)="dataStateChange($event)"
-    [selectOptions]="selectOptions"
-    [loading]="loading"
-    [isServerSide]="false"    
-  >
-  <e-columns>
-      <e-column field="fullNameLastFirst" headerText="Candidate">
-          <ng-template #template let-data>
-              <ejs-tooltip *hasKey="[Keys.HiringCandidatesView, Keys.HiringCandidatesEdit]"   #tooltip
-                           [content]="editOrViewThisCandidate + ' (' + data.fullNameLastFirst + ')'">
-                <a class="grid-link disable-row-select" (click)="onLinkClicked($event, data)">{{ data.fullNameLastFirst }}</a>
-              </ejs-tooltip>
-            </ng-template>
-      </e-column>
-      <e-column field="candidateStatus" headerText="Status"></e-column>
-  </e-columns>
-  </talent-grid>
-</div>
-  </dashboard-card-body>
-</div>
+# Differences between `dash-ac.component.html` (Mocks) and `dash-ac.component.html` (Productions)
+
+## Table of Contents
+
+-   [Relative Paths](#relative-paths)
+-   [Differences](#differences)
+-   [Prod Screenshots](#prod-screenshots)
+-   [Mock Screenshots](#mock-screenshots)
+-   [URL](#url)
+
+### Relative Paths
+
+-   **dash-ac.component.html**: `components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-ac/dash-ac.component.html `
+-   **dash-ac.component.html**: `AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-ac/dash-ac.component.html `
+
+### Differences
+
+#### components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-ac/dash-ac.component.html
+
+-   Contains a `<div>` with class `dashboard__card`.
+-   Contains a `<dashboard-card-title>` component with a `[title]` attribute set to `'Active Candidates'`.
+-   Contains an `<input-dropdown>` component with attributes `[data]`, `[value]`, `[placeholder]`, and `[floatLabelType]`.
+-   Contains a `<dashboard-card-body>` component.
+-   Contains an `<ejs-grid>` component with attributes `[enableAdaptiveUI]`, `[rowRenderingMode]`, `[allowPaging]`, `[dataSource]`, `allowSorting`, `allowPaging`, `[loadingIndicator]`, and `height`.
+-   Contains an `<e-columns>` component with multiple `<e-column>` components.
+-   Contains an `<ng-template>` with `#editbutton`.
+-   Contains an `<ng-template>` with `#evealuateStatus`.
+
+#### AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-ac/dash-ac.component.html
+
+-   Contains a `<dashboard-card-title>` component with a `[title]` attribute set to `'Active Candidates'`.
+-   Contains an `<input-dropdown>` component with attributes `[form]`, `formControlName`, `[data]`, `[placeholder]`, `[floatLabelType]`, and `(optionSelected)`.
+-   Contains a `<dashboard-card-body>` component.
+-   Contains a `<div>` with `id="custom-grid"`.
+-   Contains a `<talent-grid>` component with attributes `[allowSorting]`, `[allowPaging]`, `[allowNew]`, `[allowFiltering]`, `[allowBulkActions]`, `[allowSearch]`, `[allowExport]`, `[gridHeight]`, `[data]`, `(initialized)`, `(selected)`, `(dataStateChange)`, `[selectOptions]`, `[loading]`, and `[isServerSide]`.
+-   Contains an `<e-columns>` component with multiple `<e-column>` components.
+-   Contains an `<ng-template>` with `#template`.
+-   Contains an `<ejs-tooltip>` component with attributes `*hasKey`, `#tooltip`, and `[content]`.
+-   Contains an `<a>` tag with class `grid-link disable-row-select` and `(click)` event.
+
+### Prod Screenshots
+
+![Prod Screenshot](/assets/img/dash-ac-prod.png)
+
+### Mock Screenshots
+
+![Mock Screenshot](/assets/img/dash-ac-mock.png)
+
+### URL
+
+[link to the page in prod](https://piedpiper.agilehr.net)
