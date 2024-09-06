@@ -1,72 +1,47 @@
-<div class="dashboard__card">
-    <dashboard-card-title [title]="'Current Appraisals'">
-        <div class="advanced-search">
-            <button-base [title]=""
-                         [tooltip]="'Toggle Search Filters'"
-                         [isPrimary]="false"
-                         [class]="['e-flat', 'advanced-search-btn']"
-                         [iconClass]="'fa-light fa-filter-list'"
-                         (click)="openAdvancedSearch()"></button-base>
-            <input-text [placeholder]="'Search'" [cssClass]="'search-bar'"></input-text>
-        </div>
-    </dashboard-card-title>
-    <dashboard-card-body>
-        <ejs-grid [allowPaging]="true"
-                  [dataSource]="griddata"
-                  allowSorting="true"
-                  allowPaging="true"
-                  [loadingIndicator]="loadingIndicator"
-                  [enableAdaptiveUI]="true"
-                  height="100%">
-            <e-columns>
-                <e-column field="Employee" headerText="Employee"></e-column>
-                <e-column field="Supervisor" headerText="Supervisor"></e-column>
-                <e-column field="From" headerText="From" width="120px"></e-column>
-                <e-column field="To" headerText="To" width="120px"></e-column>
-                <e-column field="Status"
-                          headerText=""
-                          [template]="statusTemplate"
-                          width="50px"></e-column>
-                <e-column field=""
-                          textAlign="center"
-                          [template]="editbutton"
-                          width="80px"></e-column>
-            </e-columns>
-        </ejs-grid>
-    </dashboard-card-body>
-    <!-- dropdwon nav -->
-    <ng-template #editbutton>
-        <button-dropdown-grid [items]="items"
-                              tooltip="Choose an option"
-                              [callback]="select"></button-dropdown-grid>
-    </ng-template>
-    <!-- evaluate status -->
-    <ng-template #statusTemplate let-data>
-        <div [ngClass]="'status__' + removeWhiteSpace(data.Status)">
-            <ejs-tooltip #tooltip content="Status: {{ data.Status }}">
-                {{ shorten(data.Status) }}
-            </ejs-tooltip>
-        </div>
-    </ng-template>
-    <!--  -->
-    <!-- delete -->
-    <modal-base [config]="appraiseEmployeeModal"
-                [template]="appraiseEmployee"></modal-base>
-    <ng-template #appraiseEmployee>
-        <div class="row">
-            <div class="col-xs-12">
-                Are you sure you want to delete this job cost? Once deleted, it cannot be
-                recovered.
-            </div>
-        </div>
-    </ng-template>
+# Differences between `dash-appr.component.html` (Mocks) and `dash-appr.component.html` (Production)
 
-    <!-- delete -->
-    <modal-base [config]="advancedSearchModal"
-                [template]="editSetupContent"></modal-base>
-    <ng-template #editSetupContent>
-        <settings-table>
-            <settings-row [title]="" [description]="" [required]=""> </settings-row>
-        </settings-table>
-    </ng-template>
-</div>
+## Table of Contents
+
+-   [Relative Paths](#relative-paths)
+-   [Differences](#differences)
+-   [Prod Screenshots](#prod-screenshots)
+-   [Mock Screenshots](#mock-screenshots)
+-   [URL](#url)
+
+### Relative Paths
+
+-   **dash-appr.component.html**: `components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-appr/dash-appr.component.html`
+-   **dash-appr.component.md**: `AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-appr/dash-appr.component.md`
+
+### Differences
+
+#### components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-appr/dash-appr.component.html
+
+-   Contains a `<button-base>` component with an `[iconClass]` attribute set to `'fa-light fa-filter-list'`.
+-   Contains an `<ejs-grid>` component with a `[rowRenderingMode]` attribute set to `'Vertical'`.
+-   Contains an `<e-column>` component with a `field` attribute set to `Status`, a `headerText` attribute set to an empty string, a `[template]` attribute set to `statusTemplate`, and a `width` attribute set to `80px`.
+-   Contains an `<ng-template>` with `#popoverTemplate` inside the `#statusTemplate` template.
+-   Contains an `<ng-template>` with `#editSetupContent` containing a `<settings-table>` component with a `<settings-row>` component.
+
+#### AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-appr/dash-appr.component.md
+
+-   Contains a `<button-base>` component with a `(click)` event bound to `openAdvancedSearch()`.
+-   Contains an `<e-column>` component with a `width` attribute set to `50px` for the `Status` field.
+-   Contains an `<ng-template>` with `#statusTemplate` containing an `<ejs-tooltip>` component with a `#tooltip` template reference variable and a `content` attribute.
+-   Contains an `<ng-template>` with `#editSetupContent` containing a `<settings-row>` component with `[title]`, `[description]`, and `[required]` attributes.
+
+### Prod Screenshots
+
+### This component is currently not implemented in production.
+
+### Prod Screenshots
+
+N/A
+
+### Mock Screenshots
+
+![Mock Screenshot](/assets/img/dash-ac-mock.png)
+
+### URL
+
+N/A

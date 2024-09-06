@@ -1,4 +1,4 @@
-# Differences between `dash-ac.component.html` (Mocks) and `dash-ac.component.html` (Productions)
+# Differences between `dash-ac.component.html` (Mocks) and `dash-ac.component.html` (Production)
 
 ## Table of Contents
 
