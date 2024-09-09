@@ -1,0 +1,77 @@
+## File Comparison Report
+
+## Table of Contents
+
+- [File Paths](#file-paths)
+- [Differences in Markup Structure](#differences-in-markup-structure)
+  - [AgileHR](#agilehr)
+  - [mocks-talent-ng](#mocks-talent-ng)
+- [Unique Markup Tags](#unique-markup-tags)
+  - [AgileHR](#agilehr-1)
+  - [mocks-talent-ng](#mocks-talent-ng-1)
+- [Summary](#summary)
+- [Prod Screenshots](#prod-screenshots)
+- [Mock Screenshots](#mock-screenshots)
+- [URL](#url)
+
+### File Paths
+
+- **AgileHR**: `AgileHR/Talent/Talent.Web/ClientApp/src/app/employees/employee-additional/compensation/manage-compensation/new-compensation/new-compensation.component.html`
+- **mocks-talent-ng**: `components-ng-shared/projects/mocks-talent-ng/src/app/employees/employee-additional/compensation/manage-compensation/new-compensation/new-compensation.component.html`
+
+### Differences in Markup Structure
+
+#### AgileHR
+
+- Contains a `<settings-table>` component with `[settingsTitle]` and `[formGroup]` attributes.
+- Contains multiple `<settings-row>` components with `[title]`, `[description]`, and `[required]` attributes.
+- Each `<settings-row>` contains different input components:
+  - `<input-datepicker>` for date input.
+  - `<input-numeric>` for amount input.
+  - `<input-dropdown>` for pay frequency input.
+  - `<input-dropdown>` for change reason input.
+  - `<input-multiline>` for comment input.
+
+#### mocks-talent-ng
+
+- Contains a `<settings-table>` component with `[settingsTitle]` and `[formGroup]` attributes.
+- Contains multiple `<settings-row>` components with `[title]`, `[description]`, and `[required]` attributes.
+- Each `<settings-row>` contains different input components:
+  - `<input-datepicker>` for date input.
+  - `<input-numeric>` for amount input.
+  - `<input-dropdown>` for pay frequency input.
+  - `<input-dropdown>` for change reason input.
+  - `<input-multiline>` for comment input.
+
+### Unique Markup Tags
+
+#### AgileHR
+
+- None
+
+#### mocks-talent-ng
+
+- None
+
+### Differences in Markup Structure
+
+- Both files have identical markup structures with `<settings-table>`, `<settings-row>`, `<input-datepicker>`, `<input-numeric>`, `<input-dropdown>`, and `<input-multiline>` components.
+- There are no differences in the number or types of input components used within the `<settings-row>` elements.
+
+### Summary
+
+The primary observation is that both files have identical markup structures and use the same components for date, amount, pay frequency, change reason, and comment inputs.
+
+### Prod Screenshots
+
+![Alt Text](/path/to/img.jpg)
+
+### Mock Screenshots
+
+![Alt Text](/path/to/img.jpg)
+
+### URL
+
+[link to the page in pro](https://www.example.com)
+
+[link to the page in mock](https://www.example.com)
