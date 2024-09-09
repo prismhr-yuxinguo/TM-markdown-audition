@@ -1,37 +1,39 @@
-<div class="dashboard__card">
-    <dashboard-card-title [title]="'Career Portal Views'">
-        <ejs-dropdownlist id="ddlelement"
-                          [dataSource]="monthsData"
-                          [value]="'Last12Months'"
-                          [fields]="fields"
-                          (change)="onDropDownChange($event)"></ejs-dropdownlist>
-    </dashboard-card-title>
-    <dashboard-card-body>
-        <br />
-        <div class="preloader__wrapper" *ngIf="!showChart">
-            <div class="preloader"></div>
-        </div>
-        <ejs-chart *ngIf="showChart"
-                   [chartArea]="chartArea"
-                   class="chart-wrapper"
-                   #cpvChart
-                   id="cpv-chart-container"
-                   [enableCanvas]="false"
-                   [primaryXAxis]="primaryXAxis"
-                   [primaryYAxis]="primaryYAxis"
-                   [title]="title"
-                   [tooltip]="tooltip"
-                   [legendSettings]="legend"
-                   [palettes]="palette">
-          <e-series-collection>
-            <e-series [dataSource]="sourceData"
-                      type="Spline"
-                      xName="x"
-                      yName="y"
-                      name="Page Views"
-                      width="2"
-                      [marker]="marker"></e-series>
-          </e-series-collection>
-        </ejs-chart>
-    </dashboard-card-body>
-</div>
+# Differences between `dash-cpv.component.html` (Mocks) and `dash-cpv.component.html` (Production)
+
+## Table of Contents
+
+-   [Relative Paths](#relative-paths)
+-   [Differences](#differences)
+-   [Prod Screenshots](#prod-screenshots)
+-   [Mock Screenshots](#mock-screenshots)
+-   [URL](#url)
+
+### Relative Paths
+
+-   **dash-cpv.component.html (Mocks)**: `components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-cpv/dash-cpv.component.html`
+-   **dash-cpv.component.html (Production)**: `AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-cpv/dash-cpv.component.html`
+
+### Differences
+
+#### components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-cpv/dash-cpv.component.html
+
+-   Contains an `<input-dropdown>` component with attributes `[data]`, `[value]`, and `[floatLabelType]`.
+-   Contains a `<div>` with class `chart-container`.
+-   The `<ejs-chart>` component has an `[annotations]` attribute.
+
+#### AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-cpv/dash-cpv.component.html
+
+-   Contains an `<ejs-dropdownlist>` component with attributes `[dataSource]`, `[value]`, `[fields]`, and `(change)`.
+-   The `<ejs-chart>` component has an `id` attribute set to `cpv-chart-container`.
+
+### Production Screenshots
+
+![Prod Screenshot](/assets/img/dash-ac-mock.png)
+
+### Mock Screenshots
+
+![Mock Screenshot](/assets/img/dash-cpv-mock.png)
+
+### URL
+
+[link to the page in prod](https://piedpiper.agilehr.net)
