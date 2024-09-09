@@ -11,7 +11,7 @@
 ### Relative Paths
 
 -   **dash-gage1.component.html (Mocks)**: `components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-gage1/dash-gage1.component.html`
--   **dash-gage1.component.md (Production)**: `AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-gage1/dash-gage1.component.md`
+-   **dash-gage1.component.html (Production)**: `AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-gage1/dash-gage1.component.html`
 
 ### Differences
 

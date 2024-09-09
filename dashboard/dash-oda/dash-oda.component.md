@@ -29,4 +29,4 @@ N/A
 
 ### URL
 
-N/A
+[link to the page in mock environment](http://localhost:4340/dashboard)

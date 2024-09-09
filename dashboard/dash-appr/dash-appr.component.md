@@ -11,7 +11,7 @@
 ### Relative Paths
 
 -   **dash-appr.component.html**: `components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-appr/dash-appr.component.html`
--   **dash-appr.component.md**: `AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-appr/dash-appr.component.md`
+-   **dash-appr.component.html**: `AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-appr/dash-appr.component.html`
 
 ### Differences
 
@@ -23,7 +23,7 @@
 -   Contains an `<ng-template>` with `#popoverTemplate` inside the `#statusTemplate` template.
 -   Contains an `<ng-template>` with `#editSetupContent` containing a `<settings-table>` component with a `<settings-row>` component.
 
-#### AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-appr/dash-appr.component.md
+#### AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-appr/dash-appr.component.html
 
 -   Contains a `<button-base>` component with a `(click)` event bound to `openAdvancedSearch()`.
 -   Contains an `<e-column>` component with a `width` attribute set to `50px` for the `Status` field.
@@ -42,4 +42,4 @@ N/A
 
 ### URL
 
-N/A
+[link to the page in mock environment](http://localhost:4340/dashboard)

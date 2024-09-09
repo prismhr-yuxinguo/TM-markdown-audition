@@ -40,3 +40,5 @@
 ### URL
 
 [link to the page in prod](https://piedpiper.agilehr.net)
+
+[link to the page in mock environment](http://localhost:4340/dashboard)

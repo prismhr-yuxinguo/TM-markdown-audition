@@ -11,7 +11,7 @@
 ### Relative Paths
 
 -   **dash-cws.component.html (Mocks)**: `components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-cws/dash-cws.component.html`
--   **dash-cws.component.md (Production)**: `AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-cws/dash-cws.component.md`
+-   **dash-cws.component.html (Production)**: `AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-cws/dash-cws.component.html`
 
 ### Differences
 
@@ -40,3 +40,5 @@
 ### URL
 
 [link to the page in prod](https://piedpiper.agilehr.net)
+
+[link to the page in mock environment](http://localhost:4340/dashboard)
