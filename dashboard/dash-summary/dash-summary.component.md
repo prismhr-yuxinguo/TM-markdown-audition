@@ -1,93 +1,42 @@
-<div class="dashboard__card">
-    <dashboard-card-title [title]="'Candidate Summary'"> </dashboard-card-title><dashboard-card-body>
-        <ejs-chart id="chart-container"
-                   [primaryXAxis]="primaryXAxis"
-                   [primaryYAxis]="primaryYAxis"
-                   [title]="title"
-                   #summarChart
-                   [palettes]="palette">
-            <e-series-collection>
-                <e-series [dataSource]="chartData"
-                          type="Column"
-                          xName="Title"
-                          yName="YC"
-                          name="Yearly Candidates"
-                          width="2"
-                          [marker]="marker"
-                          columnSpacing="0.1"
-                          tooltipMappingName="MappingName">
-                </e-series>
-                <e-series [dataSource]="chartData"
-                          type="Column"
-                          xName="Title"
-                          yName="MC"
-                          name="Monthly Candidates"
-                          width="2"
-                          [marker]="marker"
-                          columnSpacing="0.1"
-                          tooltipMappingName="MappingName">
-                </e-series>
-                <e-series [dataSource]="chartData"
-                          type="Column"
-                          xName="Title"
-                          yName="TC"
-                          name="Today's Candidates"
-                          width="2"
-                          [marker]="marker"
-                          columnSpacing="0.1"
-                          tooltipMappingName="MappingName">
-                </e-series>
-                <e-series [dataSource]="chartData"
-                          type="Column"
-                          xName="Title"
-                          yName="AR"
-                          name="Active Requisitions"
-                          width="2"
-                          [marker]="marker"
-                          columnSpacing="0.1"
-                          tooltipMappingName="MappingName">
-                </e-series>
-                <e-series [dataSource]="chartData"
-                          type="Column"
-                          xName="Title"
-                          yName="PR"
-                          name="Published Requisitions"
-                          width="2"
-                          [marker]="marker"
-                          columnSpacing="0.1"
-                          tooltipMappingName="MappingName">
-                </e-series>
-                <e-series [dataSource]="chartData"
-                          type="Column"
-                          xName="Title"
-                          yName="IP"
-                          name="In Progress Requisitions"
-                          width="2"
-                          [marker]="marker"
-                          columnSpacing="0.1"
-                          tooltipMappingName="MappingName">
-                </e-series>
-                <e-series [dataSource]="chartData"
-                          type="Column"
-                          xName="Title"
-                          yName="FY"
-                          name="Filled Requisitions (Year)"
-                          width="2"
-                          [marker]="marker"
-                          columnSpacing="0.1"
-                          tooltipMappingName="MappingName">
-                </e-series>
-                <e-series [dataSource]="chartData"
-                          type="Column"
-                          xName="Title"
-                          yName="ATC"
-                          name="All-Time Candidates"
-                          width="2"
-                          [marker]="marker"
-                          columnSpacing="0.1"
-                          tooltipMappingName="MappingName">
-                </e-series>
-            </e-series-collection>
-        </ejs-chart>
-    </dashboard-card-body>
-</div>
+## Table of Contents
+
+-   [Relative Paths](#relative-paths)
+-   [Differences](#differences)
+-   [Screenshots](#screenshots)
+-   [URLs](#urls)
+
+### Relative Paths
+
+-   **dash-summary.component.html**: `components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-summary/dash-summary.component.html`
+-   **dash-summary.component.html**: `AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-summary/dash-summary.component.html`
+
+### Differences
+
+#### components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-summary/dash-summary.component.html
+
+-   Contains an `<e-series>` component with `yName="AR"` and `name="Active Requisitions"`.
+-   Contains an `<e-series>` component with `yName="PR"` and `name="Published Requisitions"`.
+-   Contains an `<e-series>` component with `yName="IP"` and `name="In Progress Requisitions"`.
+-   Contains an `<e-series>` component with `yName="FY"` and `name="Filled Requisitions (Year)"`.
+-   Contains an `<e-series>` component with `yName="ATC"` and `name="All-Time Candidates"`.
+
+#### AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-summary/dash-summary.component.html
+
+-   Contains an `<e-series>` component with `yName="YC"` and `name="Yearly Candidates"`.
+-   Contains an `<e-series>` component with `yName="MC"` and `name="Monthly Candidates"`.
+
+### This component is currently not implemented in production or mock environment.
+
+### Screenshots
+
+#### components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-summary/dash-summary.component.html
+
+N/A
+
+#### AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-summary/dash-summary.component.html
+
+N/A
+
+### URLs
+
+N/A

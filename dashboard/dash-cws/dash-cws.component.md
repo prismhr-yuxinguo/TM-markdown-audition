@@ -1,31 +1,42 @@
-<div class="dashboard__card">
-  <dashboard-card-title [title]="'Candidate Workflow Status'">
-    <input-dropdown 
-    [ngClass]="{
-      'custom-notallowed-cursor': showChart
-    }"
-     [form]="filtersForm" formControlName="requisitions" [data]="requisitionsData"
-      [placeholder]="'Choose Requisition'" [floatLabelType]="'Never'"
-      (optionSelected)="onDropDownChange($event)"></input-dropdown>
-  </dashboard-card-title>
-  <dashboard-card-body>
-    <div class="preloader__wrapper" *ngIf="showChart">
-      <div class="preloader"></div>
-    </div>
-    <div *ngIf="!showChart && !chartData?.length">
-      No data available to display.
-    </div>
-    <div class="chart-container">
-    <ejs-accumulationchart class="custom-cursor" *ngIf="!showChart && chartData?.length" #cwsChart [legendSettings]="legendSettings"
-      [tooltip]="tooltip" [title]="title" [enableSmartLabels]="enableSmartLabels" [enableAnimation]="enableAnimation"
-      [enableBorderOnMouseMove]="false" (pointClick)="onSectionClick($event)">
-      <e-accumulation-series-collection>
-        <e-accumulation-series [dataSource]="chartData" xName="Status" yName="Count" innerRadius="40%"
-          [dataLabel]="dataLabel" [radius]="radius" tooltipMappingName="Radius" [palettes]="palette">
-        </e-accumulation-series>
-      </e-accumulation-series-collection>
-    </ejs-accumulationchart>
-   </div>
-   
-  </dashboard-card-body>
-</div>
+# Differences between `dash-cws.component.html` (Mocks) and `dash-cws.component.html` (Production)
+
+## Table of Contents
+
+-   [Relative Paths](#relative-paths)
+-   [Differences](#differences)
+-   [Prod Screenshots](#prod-screenshots)
+-   [Mock Screenshots](#mock-screenshots)
+-   [URL](#url)
+
+### Relative Paths
+
+-   **dash-cws.component.html (Mocks)**: `components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-cws/dash-cws.component.html`
+-   **dash-cws.component.md (Production)**: `AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-cws/dash-cws.component.md`
+
+### Differences
+
+#### components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-cws/dash-cws.component.html
+
+-   Contains a `<div>` with class `preloader__wrapper` and `*ngIf="!showChart"`.
+-   Contains an `<ejs-accumulationchart>` component with attributes `[legendSettings]`, `[tooltip]`, `[title]`, `[enableSmartLabels]`, `[enableAnimation]`, `[enableBorderOnMouseMove]`, and `*ngIf="showChart"`.
+-   The `<e-accumulation-series>` component has attributes `[dataSource]`, `xName`, `yName`, `innerRadius`, `[dataLabel]`, `[radius]`, `tooltipMappingName`, and `[palettes]`.
+
+#### AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-cws/dash-cws.component.html
+
+-   Contains an `<input-dropdown>` component with attributes `[ngClass]`, `[form]`, `formControlName`, `[data]`, `[placeholder]`, `[floatLabelType]`, and `(optionSelected)`.
+-   Contains a `<div>` with class `preloader__wrapper` and `*ngIf="showChart"`.
+-   Contains a `<div>` with `*ngIf="!showChart && !chartData?.length"` displaying "No data available to display."
+-   Contains an `<ejs-accumulationchart>` component with attributes `[legendSettings]`, `[tooltip]`, `[title]`, `[enableSmartLabels]`, `[enableAnimation]`, `[enableBorderOnMouseMove]`, `*ngIf="!showChart && chartData?.length"`, and `(pointClick)`.
+-   The `<e-accumulation-series>` component has attributes `[dataSource]`, `xName`, `yName`, `innerRadius`, `[dataLabel]`, `[radius]`, `tooltipMappingName`, and `[palettes]`.
+
+### Production Screenshots
+
+![Prod Screenshot](/assets/img/dash-ac-prod.png)
+
+### Mock Screenshots
+
+![Mock Screenshot](/assets/img/dash-ac.mock.png)
+
+### URL
+
+[link to the page in prod](https://piedpiper.agilehr.net)

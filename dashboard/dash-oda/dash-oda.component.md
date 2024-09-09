@@ -1,29 +1,32 @@
-<div class="dashboard__card">
-    <dashboard-card-title [title]="'Overdue Appraisals'"></dashboard-card-title>
-    <dashboard-card-body>
-        <ejs-grid [allowPaging]="true"
-                  [dataSource]="griddata"
-                  allowSorting="true"
-                  allowPaging="true"
-                  [loadingIndicator]="loadingIndicator"
-                  [enableAdaptiveUI]="true"
-                  height="100%">
-            <e-columns>
-                <e-column field="Employee" headerText="Employee"></e-column>
-                <e-column field="Supervisor" headerText="Supervisor"></e-column>
-                <e-column field="EEDD" headerText="Employee Due Date"></e-column>
-                <e-column field="ERDD" headerText="Employer Due Date"></e-column>
-                <e-column field=""
-                          textAlign="center"
-                          [template]="editbutton"
-                          width="80px"></e-column>
-            </e-columns>
-        </ejs-grid>
-    </dashboard-card-body>
-    <!-- dropdwon nav -->
-    <ng-template #editbutton>
-        <button-dropdown-grid [items]="items"
-                              tooltip="Choose an option"
-                              [callback]="select"></button-dropdown-grid>
-    </ng-template>
-</div>
+# Differences between `dash-oda.component.html` (Mocks) and `dash-oda.component.html` (Production)
+
+## Table of Contents
+
+-   [Relative Paths](#relative-paths)
+-   [Differences](#differences)
+-   [Prod Screenshots](#prod-screenshots)
+-   [Mock Screenshots](#mock-screenshots)
+-   [URL](#url)
+
+### Relative Paths
+
+-   **dash-oda.component.html**: `components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-oda/dash-oda.component.html`
+-   **dash-oda.component.html**: `AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-oda/dash-oda.component.html`
+
+### Differences
+
+There are no differences between `dash-oda.component.html` and `dash-oda.component.html`.
+
+### This component is currently not implemented in production.
+
+### Prod Screenshots
+
+N/A
+
+### Mock Screenshots
+
+![Mock Screenshot](/assets/img/dash-ac.component.png)
+
+### URL
+
+N/A

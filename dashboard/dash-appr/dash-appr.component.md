@@ -30,8 +30,6 @@
 -   Contains an `<ng-template>` with `#statusTemplate` containing an `<ejs-tooltip>` component with a `#tooltip` template reference variable and a `content` attribute.
 -   Contains an `<ng-template>` with `#editSetupContent` containing a `<settings-row>` component with `[title]`, `[description]`, and `[required]` attributes.
 
-### Prod Screenshots
-
 ### This component is currently not implemented in production.
 
 ### Prod Screenshots

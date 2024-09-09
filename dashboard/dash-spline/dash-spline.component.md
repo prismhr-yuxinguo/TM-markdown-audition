@@ -1,41 +1,42 @@
-<div class="dashboard__card">
-    <dashboard-card-title [title]="'Appraisal Status Overview'">
-        <input-dropdown [data]="monthsData"
-                        [value]="value"
-                        placeholder="Benefits Categories"
-                        [floatLabelType]="'Never'"
-                        (optionSelected)="onDropDownChange($event)"></input-dropdown>
-    </dashboard-card-title>
+# Differences between `dash-spline.component.html` (Mocks) and `dash-spline.component.html` (Production)
 
-    <dashboard-card-body>
-        <br />
-        <div class="preloader__wrapper" *ngIf="!showChart">
-            <div class="preloader"></div>
-        </div>
+## Table of Contents
 
-        <ejs-chart *ngIf="showChart"
-                   [chartArea]="chartArea"
-                   class="chart-wrapper"
-                   id="aso-chart-container"
-                   #splineChart
-                   [enableCanvas]="false"
-                   [primaryXAxis]="primaryXAxis"
-                   [primaryYAxis]="primaryYAxis"
-                   [title]="title"
-                   [tooltip]="tooltip"
-                   [annotations]="annotations"
-                   [legendSettings]="legend"
-                   [palettes]="palette">
-            <e-series-collection>
-                <e-series [dataSource]="sourceData"
-                          type="Line"
-                          xName="x"
-                          yName="y"
-                          width="2"
-                          [marker]="marker"></e-series>
-            </e-series-collection>
-        </ejs-chart>
+-   [Relative Paths](#relative-paths)
+-   [Differences](#differences)
+-   [Prod Screenshots](#prod-screenshots)
+-   [Mock Screenshots](#mock-screenshots)
+-   [URL](#url)
 
-    </dashboard-card-body>
-</div>
+### Relative Paths
 
+-   **dash-spline.component.html**: `components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-spline/dash-spline.component.html`
+-   **dash-spline.component.html**: `AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-spline/dash-spline.component.html`
+
+### Differences
+
+#### components-ng-shared/projects/mocks-talent-ng/src/app/dashboard/dash-spline/dash-spline.component.html
+
+-   Contains a `<dashboard-card-title>` component with an `<input-dropdown>` element inside it.
+-   Contains a `<dashboard-card-body>` component with a `<div>` element having class `preloader__wrapper` and a nested `<div>` element with class `preloader`.
+-   Contains an `<ejs-chart>` component with attributes `[chartArea]`, `class`, `id`, `#splineChart`, `[enableCanvas]`, `[primaryXAxis]`, `[primaryYAxis]`, `[title]`, `[tooltip]`, `[annotations]`, `[legendSettings]`, and `[palettes]`.
+-   Contains an `<e-series-collection>` component with a nested `<e-series>` element having attributes `[dataSource]`, `type`, `xName`, `yName`, `width`, and `[marker]`.
+
+#### AgileHR/Talent/Talent.Web/ClientApp/src/app/dashboard/dash-spline/dash-spline.component.html
+
+-   Contains a `<dashboard-card-title>` component with a `<select>` element inside it.
+-   Contains a `<dashboard-card-body>` component with a `<div>` element having class `loader__wrapper` and a nested `<div>` element with class `loader`.
+-   Contains an `<ejs-chart>` component with attributes `[chartArea]`, `class`, `id`, `#chartContainer`, `[enableCanvas]`, `[primaryXAxis]`, `[primaryYAxis]`, `[title]`, `[tooltip]`, `[annotations]`, `[legendSettings]`, and `[palettes]`.
+-   Contains an `<e-series-collection>` component with a nested `<e-series>` element having attributes `[dataSource]`, `type`, `xName`, `yName`, `width`, and `[marker]`.
+
+### Prod Screenshots
+
+### dash-spline is implemented on dashboard.component.html, but not visible.
+
+### Mock Screenshots
+
+![Mock Screenshot](/assets/img/dash-ac-mock.png)
+
+### URL
+
+[link to the page in prod](https://piedpiper.agilehr.net)

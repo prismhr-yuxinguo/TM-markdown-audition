@@ -1,187 +1,62 @@
-<page-title [title]="'Relaxation Destinations Dashboard'"></page-title>
-<!-- <illustration-block
-  [illustrationBlockTitle]="'Time again'"
-  [illustrationBlockDescription]="'asdasd'"
-></illustration-block> -->
-<div class="dashboard">
-  <div class="dashboard__top">
-    <quicklinks [links]='quicklinks'></quicklinks>
+# Differences between `dashboard.component.html` and `dashboard.component.html`
 
-    <div class="dashboard__top-layout">
-      <ejs-tooltip #tooltip content="Reset Dashboard layout">
-        <button class="dashboard__layout-resize"
-                tabindex="0"
-                aria-label="Reset Dashboard layout"
-                #restoreBtn
-                (click)="onrestoreClick($event)">
-          <div class="dashboard__design" aria-hidden="true">
-            <div class="dashboard__design-a"></div>
-            <div class="dashboard__design-b"></div>
-            <div class="dashboard__design-c"></div>
-            <div class="dashboard__design-d"></div>
-          </div>
-        </button>
-      </ejs-tooltip>
-    </div>
-  </div>
-  <ejs-dashboardlayout #defaultLayout
-                       columns="12"
-                       [cellSpacing]="[24, 24]"
-                       [allowResizing]="true"
-                       (resizeStop)="onResizeStop($this)"
-                       (resizeStart)="onResizeStart($this)"
-                       (resize)="onResize($this)"
-                       (dragStart)="onDragStart($this)"
-                       (drag)="onDrag($this)"
-                       (dragStop)="onDragStop($this)"
-                       [showGridLines]="showGridLines"
-                       [panels]="panels"
-                       [mediaQuery]='mediaQuery'>
-    <ng-template #dash1>
-      <div class="dashboard-mini">
-        <img draggable="false"
-             class="dashboard-mini__image"
-             src="{{ imagePath }}" />
-        <div class="dashboard-mini__figure">15</div>
-        <div class="dashboard-mini__title">Active Appraisals</div>
-        <div class="dashboard-mini__cta">
-          <ejs-tooltip #tooltip content="View all ">
-            <a href="#"><i class="fa-light fa-angle-right"></i></a>
-          </ejs-tooltip>
-        </div>
-      </div>
-    </ng-template>
+## Table of Contents
 
-    <ng-template #dash2>
-      <div class="dashboard-mini">
-        <img draggable="false"
-             class="dashboard-mini__image"
-             src="{{ imagePath2 }}" />
-        <div class="dashboard-mini__figure">30</div>
-        <div class="dashboard-mini__title">Appraisals Ready</div>
-        <div class="dashboard-mini__cta">
-          <ejs-tooltip #tooltip content="View all Appraisals Ready">
-            <a href="#"><i class="fa-light fa-angle-right"></i></a>
-          </ejs-tooltip>
-        </div>
-      </div>
-    </ng-template>
+-   [Relative Paths](#relative-paths)
+-   [Differences](#differences)
+-   [Prod Screenshots](#prod-screenshots)
+-   [Mock Screenshots](#mock-screenshots)
+-   [URL](#url)
 
-    <ng-template #dash3>
-      <div class="dashboard-mini">
-        <img draggable="false"
-             class="dashboard-mini__image"
-             src="{{ imagePath3 }}" />
-        <div class="dashboard-mini__figure">0</div>
-        <div class="dashboard-mini__title">Overdue Appraisals</div>
-        <div class="dashboard-mini__cta">
-          <ejs-tooltip #tooltip content="View all >Overdue Appraisals">
-            <a href="#"><i class="fa-light fa-angle-right"></i></a>
-          </ejs-tooltip>
-        </div>
-      </div>
-    </ng-template>
+### Relative Paths
 
-    <ng-template #dash4>
-      <div class="dashboard-mini">
-        <img draggable="false"
-             class="dashboard-mini__image"
-             src="{{ imagePath4 }}" />
-        <div class="dashboard-mini__figure">0</div>
-        <div class="dashboard-mini__title">Outstanding Milestones</div>
-        <div class="dashboard-mini__cta">
-          <ejs-tooltip #tooltip content="View all Outstanding Milestones">
-            <a href="#"><i class="fa-light fa-angle-right"></i></a>
-          </ejs-tooltip>
-        </div>
-      </div>
-    </ng-template>
+-   **dashboard.component.html**: `path/to/dashboard.component.html`
+-   **dashboard.component.html**: `path/to/dashboard.component.html`
 
-    <ng-template #dash5>
-      <app-dash-spline></app-dash-spline>
-    </ng-template>
+### Differences
 
-    <ng-template #dash6>
-      <app-dash-oda></app-dash-oda>
-    </ng-template>
+#### dashboard.component.html
 
-    <ng-template #dash7>
-      <app-dash-appr></app-dash-appr>
-    </ng-template>
+-   Contains a `<page-title>` component with a `[title]` attribute set to `'Relaxation Destinations Dashboard'`.
+-   Contains a `<quicklinks>` component with a `[links]` attribute set to an array of objects with `name` and `route` properties.
+-   Contains a `<popover>` component with a `[template]` attribute set to `popoverTemplate`.
+-   Contains a `<button>` element with a `(click)` event bound to `onrestoreClick($event)`.
+-   Contains a `<div>` with class `dashboard__design` and multiple child `<div>` elements with classes `dashboard__design-a`, `dashboard__design-b`, `dashboard__design-c`, and `dashboard__design-d`.
+-   Contains an `<ng-template>` with `#popoverTemplate` containing the text `Reset Dashboard layout`.
+-   Contains an `<ejs-dashboardlayout>` component with attributes `columns`, `[cellSpacing]`, `[allowResizing]`, `(resizeStop)`, `(resizeStart)`, `(resize)`, `(dragStart)`, `(drag)`, `(dragStop)`, `[showGridLines]`, `[panels]`, and `[mediaQuery]`.
+-   Contains multiple `<ng-template>` elements with `#dash1` to `#dash19`.
 
-    <ng-template #dash8>
-      <app-dash-om></app-dash-om>
-    </ng-template>
+#### dashboard.component.html
 
-    <ng-template #dash9>
-      <app-dash-ac></app-dash-ac>
-    </ng-template>
+-   Contains a commented-out `<illustration-block>` component with `[illustrationBlockTitle]` and `[illustrationBlockDescription]` attributes.
+-   Contains a `<quicklinks>` component with a `[links]` attribute set to `quicklinks`.
+-   Contains an `<ejs-tooltip>` component with `#tooltip` and `content` attributes.
+-   Contains a `<button>` element with a `(click)` event bound to `onrestoreClick($event)`.
+-   Contains a `<div>` with class `dashboard__design` and multiple child `<div>` elements with classes `dashboard__design-a`, `dashboard__design-b`, `dashboard__design-c`, and `dashboard__design-d`.
+-   Contains an `<ejs-dashboardlayout>` component with attributes `columns`, `[cellSpacing]`, `[allowResizing]`, `(resizeStop)`, `(resizeStart)`, `(resize)`, `(dragStart)`, `(drag)`, `(dragStop)`, `[showGridLines]`, `[panels]`, and `[mediaQuery]`.
+-   Contains multiple `<ng-template>` elements with `#dash1` to `#dash19`.
+-   Contains a `<div>` with class `dashboard-mini__figure` and an interpolation binding to `candidateRequisitionCounts?.candidatesToday || 0`.
+-   Contains a `<div>` with class `dashboard-mini__title` and an interpolation binding to `currentMonth`.
+-   Contains a `<div>` with class `dashboard-mini__figure` and an interpolation binding to `candidateRequisitionCounts?.candidatesThisYear || 0`.
+-   Contains a `<div>` with class `dashboard-mini__title` and an interpolation binding to `currentYear`.
+-   Contains a `<div>` with class `dashboard-mini__figure` and an interpolation binding to `candidateRequisitionCounts?.candidatesAllTime || 0`.
+-   Contains a `<div>` with class `dashboard-mini__figure` and an interpolation binding to `candidateRequisitionCounts?.requisitionsActive || 0`.
+-   Contains an `<a>` element with an `href` attribute set to `/hiring/requisitions#statusesFilter=Published`.
+-   Contains a `<div>` with class `dashboard-mini__figure` and an interpolation binding to `candidateRequisitionCounts?.requisitionsPublished || 0`.
+-   Contains an `<a>` element with an `href` attribute set to `/hiring/requisitions#statusesFilter=In+Progress`.
+-   Contains a `<div>` with class `dashboard-mini__figure` and an interpolation binding to `candidateRequisitionCounts?.requisitionsInProgress || 0`.
+-   Contains a `<div>` with class `dashboard-mini__figure` and an interpolation binding to `candidateRequisitionCounts?.requisitionsFilledThisYear || 0`.
+-   Contains a `<div>` with class `dashboard-mini__title` and an interpolation binding to `currentYear`.
 
-    <ng-template #dash10>
-      <app-dash-cws></app-dash-cws>
-    </ng-template>
-    <ng-template #dash11>
-      <div class="dashboard-mini dashboard-mini--center">
-        <div class="dashboard-mini__figure">{{candidateRequisitionCounts?.candidatesToday || 0}}</div>
-        <div class="dashboard-mini__title">Candidates Today</div>
-      </div>
-    </ng-template>
+### Prod Screenshots
 
-    <ng-template #dash12>
-      <div class="dashboard-mini dashboard-mini--center">
-        <div class="dashboard-mini__figure">{{candidateRequisitionCounts?.candidatesThisMonth || 0}}</div>
-        <div class="dashboard-mini__title">{{currentMonth}}  Candidates</div>
-      </div>
-    </ng-template>
+![Prod Screenshot](/assets/img/dashboard-ac-prod.png)
 
-    <ng-template #dash13>
-      <div class="dashboard-mini dashboard-mini--center">
-        <div class="dashboard-mini__figure">{{candidateRequisitionCounts?.candidatesThisYear || 0}}</div>
-        <div class="dashboard-mini__title">{{currentYear}} Candidates</div>
-      </div>
-    </ng-template>
+### Mock Screenshots
 
-    <ng-template #dash14>
-      <div class="dashboard-mini dashboard-mini--center">
-        <div class="dashboard-mini__figure">{{candidateRequisitionCounts?.candidatesAllTime || 0}}</div>
-        <div class="dashboard-mini__title">All-Time Candidates</div>
-      </div>
-    </ng-template>
+![Mock Screenshot](/assets/img/dashboard-ac-mock.png)
 
-    <ng-template #dash15>
-      <div class="dashboard-mini dashboard-mini--center">
-        <div class="dashboard-mini__figure">{{candidateRequisitionCounts?.requisitionsActive || 0}}</div>
-        <div class="dashboard-mini__title">Active Requisitions</div>
-      </div>
-    </ng-template>
+### URL
 
-    <ng-template #dash16>
-      <div class="dashboard-mini dashboard-mini--center">
-        <div class="dashboard-mini__figure">{{candidateRequisitionCounts?.requisitionsPublished || 0}}</div>
-        <a href="/hiring/requisitions#statusesFilter=Published">
-          <div class="dashboard-mini__title">Published Requisitions</div>
-        </a>
-      </div>
-    </ng-template>
-
-    <ng-template #dash17>
-      <div class="dashboard-mini dashboard-mini--center">
-        <div class="dashboard-mini__figure">{{candidateRequisitionCounts?.requisitionsInProgress || 0}}</div>
-        <a href="/hiring/requisitions#statusesFilter=In+Progress">
-          <div class="dashboard-mini__title">In Progress Requisitions</div>
-        </a>
-      </div>
-    </ng-template>
-
-    <ng-template #dash18>
-      <div class="dashboard-mini dashboard-mini--center">
-        <div class="dashboard-mini__figure">{{candidateRequisitionCounts?.requisitionsFilledThisYear || 0}}</div>
-        <div class="dashboard-mini__title">{{currentYear}} Filled Requisitions</div>
-      </div>
-    </ng-template>
-
-    <ng-template #dash19>
-      <app-dash-cpv></app-dash-cpv>
-    </ng-template>
-  </ejs-dashboardlayout>
-</div>
+[link to the page in prod](https://example.com/dashboard)
+[link to the page in mock environment](http://localhost:4340/dashboard)
