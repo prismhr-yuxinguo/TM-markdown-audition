@@ -89,6 +89,6 @@ The primary differences between the two files are the layout structures and the 
 
 ### URL
 
-[link to the page in pro](https://www.example.com)
+[link to the page in prod](https://www.example.com)
 
 [link to the page in mock](https://www.example.com)

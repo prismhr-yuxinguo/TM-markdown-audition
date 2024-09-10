@@ -13,8 +13,8 @@
 
 ### Prod Screenshots
 
-![Alt Text](/path/to/img.jpg)
+![Prod Screenshot](employee-detail-prod.png)
 
 ### URL
 
-[link to the page in pro](https://www.example.com)
+[link to the page in prod](https://piedpiper.agilehr.net/core/employees/employee_3qag7x02zz91evx6tmvcqebwn1/overview/personal-information)

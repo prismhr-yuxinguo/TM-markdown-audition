@@ -4,6 +4,7 @@
 
 - [File Paths](#file-paths)
 - [Prod Screenshots](#prod-screenshots)
+- [Mock Screenshots](#mock-screenshots)
 - [URL](#url)
 
 ### File Paths
@@ -13,8 +14,14 @@
 
 ### Prod Screenshots
 
-![Alt Text](/path/to/img.jpg)
+None
+
+### Mock Screenshots
+
+None
 
 ### URL
 
-[link to the page in pro](https://www.example.com)
+link to the page in prod: None
+
+link to the page in mock: None

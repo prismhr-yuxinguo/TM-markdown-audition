@@ -67,14 +67,14 @@ The primary differences between the two files are the use of a `<fieldset>` elem
 
 ### Prod Screenshots
 
-![Alt Text](/path/to/img.jpg)
+![Prod Screenshot](employment-information-prod.png)
 
 ### Mock Screenshots
 
-![Alt Text](/path/to/img.jpg)
+![Mock Screenshot](employment-information-mock.png)
 
 ### URL
 
-[link to the page in pro](https://www.example.com)
+[link to the page in prod](https://piedpiper.agilehr.net/core/employees/employee_01j30gtf7ye5z9mc9zbwcft1wg/overview/employment-information)
 
-[link to the page in mock](https://www.example.com)
+[link to the page in mock](https://localhost:4340/employees/:id/overview)
