@@ -96,14 +96,14 @@ The primary differences between the two files are the layout structures and the 
 
 ### Prod Screenshots
 
-![Alt Text](/path/to/img.jpg)
+![Prod Screenshot](employees-prod.png)
 
 ### Mock Screenshots
 
-![Alt Text](/path/to/img.jpg)
+![Mock Screenshot](employees-mock.png)
 
 ### URL
 
-[link to the page in pro](https://www.example.com)
+[link to the page in prod](https://piedpiper.agilehr.net/core/employees#page=1&pageSize=10)
 
-[link to the page in mock](https://www.example.com)
+[link to the page in mock](https://localhost:4340/employees)

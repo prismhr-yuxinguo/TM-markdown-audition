@@ -78,14 +78,14 @@ The primary differences between the two files are the use of a conditional rende
 
 ### Prod Screenshots
 
-![Alt Text](/path/to/img.jpg)
+![Prod Screenshot](phone-numbers-prod.png)
 
 ### Mock Screenshots
 
-![Alt Text](/path/to/img.jpg)
+![Mock Screenshot](phone-numbers-mock.png)
 
 ### URL
 
-[link to the page in pro](https://www.example.com)
+[link to the page in prod](https://piedpiper.agilehr.net/core/employees/employee_01j30gtf7ye5z9mc9zbwcft1wg/overview/phone-numbers#page=1&pageSize=10&sortCol=typeDescription)
 
-[link to the page in mock](https://www.example.com)
+[link to the page in mock](https://localhost:4340/employees/:id/overview)

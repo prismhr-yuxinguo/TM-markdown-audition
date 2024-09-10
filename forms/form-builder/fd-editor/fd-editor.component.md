@@ -89,14 +89,14 @@ The primary difference between the two files is the formatting of the `[content]
 
 ### Prod Screenshots
 
-![Alt Text](/path/to/img.jpg)
+None
 
 ### Mock Screenshots
 
-![Alt Text](/path/to/img.jpg)
+![Mock Screenshot](fd-editor-mock.png)
 
 ### URL
 
-[link to the page in pro](https://www.example.com)
+link to the page in prod: None
 
-[link to the page in mock](https://www.example.com)
+[link to the page in mock](https://localhost:4340/forms/1/form-builder)

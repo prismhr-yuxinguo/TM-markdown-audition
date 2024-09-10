@@ -66,14 +66,14 @@ The primary differences between the two files are the components used for upload
 
 ### Prod Screenshots
 
-![Alt Text](/path/to/img.jpg)
+None
 
 ### Mock Screenshots
 
-![Alt Text](/path/to/img.jpg)
+![Mock Screenshot](upload-document-mock.png)
 
 ### URL
 
-[link to the page in pro](https://www.example.com)
+link to the page in prod: None
 
-[link to the page in mock](https://www.example.com)
+[link to the page in mock](https://localhost:4340/employees/:id/documents)

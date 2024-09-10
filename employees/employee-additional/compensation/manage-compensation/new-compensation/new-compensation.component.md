@@ -64,14 +64,13 @@ The primary observation is that both files have identical markup structures and 
 
 ### Prod Screenshots
 
-![Alt Text](/path/to/img.jpg)
+None
 
 ### Mock Screenshots
 
-![Alt Text](/path/to/img.jpg)
+![Mock Screenshot](new-compensation-mock.png)
 
 ### URL
 
-[link to the page in pro](https://www.example.com)
-
-[link to the page in mock](https://www.example.com)
+link to the page in prod: None
+[link to the page in mock](https://localhost:4340/employees/:id/additional)
