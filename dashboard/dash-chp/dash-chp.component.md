@@ -21,13 +21,15 @@
 -   Contains commented-out code for an `<e-accumulation-series-collection>` component with an `<e-accumulation-series>` component having attributes `[dataSource]`, `xName`, `yName`, and `innerRadius`.
 -   Contains commented-out code for a `<div>` with class `dashrows` containing multiple `<div>` elements with class `dashrow`, each having a `dashrow__title` and `dashrow__figure`.
 
+### This component is not implemented in the mock or production environment
+
 ### Prod Screenshots
 
 N/A - Not implemented in production
 
 ### Mock Screenshots
 
-N/A
+N/A - Not implemented in mock environ
 
 ### URL
 
