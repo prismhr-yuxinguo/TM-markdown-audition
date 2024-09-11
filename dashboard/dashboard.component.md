@@ -50,11 +50,11 @@
 
 ### Prod Screenshots
 
-![Prod Screenshot](/assets/img/dashboard-ac-prod.png)
+![Prod Screenshot](dashboard-prod.png)
 
 ### Mock Screenshots
 
-![Mock Screenshot](/assets/img/dashboard-ac-mock.png)
+![Mock Screenshot](dashboard-mock.png)
 
 ### URL
 

@@ -32,7 +32,7 @@
 
 ### Mock Screenshots
 
-![Mock Screenshot](/assets/img/dash-ac-mock.png)
+![Mock Screenshot](dash-om-mock.png)
 
 ### URL
 

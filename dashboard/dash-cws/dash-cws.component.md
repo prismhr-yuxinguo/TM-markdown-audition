@@ -31,11 +31,11 @@
 
 ### Production Screenshots
 
-![Prod Screenshot](/assets/img/dash-ac-prod.png)
+![Prod Screenshot](dash-cws-prod.png)
 
 ### Mock Screenshots
 
-![Mock Screenshot](/assets/img/dash-ac.mock.png)
+![Mock Screenshot](dash-cws-mock.png)
 
 ### URL
 

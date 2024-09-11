@@ -25,7 +25,7 @@ N/A
 
 ### Mock Screenshots
 
-![Mock Screenshot](/assets/img/dash-ac.component.png)
+![Mock Screenshot](dash-oda-mock.png)
 
 ### URL
 
