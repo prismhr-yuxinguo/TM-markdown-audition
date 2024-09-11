@@ -1,160 +1,51 @@
-<ejs-grid [allowPaging]="true" [dataSource]="posClass">
-  <ng-template #toolbarTemplate let-data>
-    <div class="custom-toolbar">
-      <div class="custom-toolbar__wrapper">
-        <div class="custom-toolbar__lc">
-          <input-text
-            [placeholder]="'Search'"
-            [cssClass]="'search-bar'"
-          ></input-text
-          ><button-dropdown
-            [items]="toolbarbtns"
-            tooltip="Table tools"
-            [callback]="select"
-            [icon]="'prism-icons-toolbox'"
-          ></button-dropdown>
-        </div>
-        <div class="custom-toolbar__rc">
-          <button-base
-            [title]="'New'"
-            [callback]="callback"
-            [tooltip]="'Add a new Resource'"
-            (click)="newEmployee()"
-          ></button-base>
-        </div>
-      </div>
-    </div>
-  </ng-template>
+# Differences between `candidate-resources.component.html` (Production) and `st-crs.component.html` (Mocks)
 
-  <e-columns>
-    <e-column field="ResourceName" headerText="Resource Name"></e-column>
-    <e-column field="DateUploaded" headerText="Date Uploaded"></e-column>
+## Table of Contents
 
-    <e-column
-      field=""
-      textAlign="center"
-      [template]="editbutton"
-      width="80px"
-    ></e-column>
-  </e-columns>
-</ejs-grid>
-<ng-template #editbutton
-  ><button-base
-    [title]=""
-    [tooltip]="'Delete'"
-    [isPrimary]="false"
-    [class]="['e-flat', 'advanced-search-btn']"
-    [iconClass]="'fa-light fa-trash'"
-    (click)="deleteBtn()"
-  ></button-base>
-  <!-- <button-dropdown-grid
-    [items]="items"
-    tooltip="Choose an option"
-    [callback]="select"
-  ></button-dropdown-grid> -->
-</ng-template>
+-   [Relative Paths](#relative-paths)
+-   [Differences](#differences)
+-   [Mock Screenshots](#mock-screenshots)
+-   [Prod Screenshots](#prod-screenshots)
+-   [URL](#url)
 
-<ng-template #printBtn
-  ><button-base
-    [title]=""
-    [tooltip]="'Print'"
-    [isPrimary]="false"
-    [class]="['e-flat', 'advanced-search-btn']"
-    [iconClass]="'fa-light fa-print'"
-    (click)="openAdvancedSearch()"
-  ></button-base>
-</ng-template>
+### Relative Paths
 
-<ng-template #pdfBtn
-  ><button-base
-    [title]=""
-    [tooltip]="'Download as PDF'"
-    [isPrimary]="false"
-    [class]="['e-flat', 'advanced-search-btn']"
-    [iconClass]="'fa-light fa-file-pdf'"
-    (click)="openAdvancedSearch()"
-  ></button-base>
-</ng-template>
+-   **candidate-resources.component.html**: `AgileHR\Talent\Talent.Web\ClientApp\src\app\settings\hiring\app-career-portal\candidate-resources\candidate-resources.component.html`
+-   **st-crs.component.html**: `components-ng-shared\projects\mocks-talent-ng\src\app\settings\tracking\track-acp\track-acp.component.html`
 
-<ng-template #csvBtn
-  ><button-base
-    [title]=""
-    [tooltip]="'Download as CSV'"
-    [isPrimary]="false"
-    [class]="['e-flat', 'advanced-search-btn']"
-    [iconClass]="'fa-light fa-file'"
-    (click)="openAdvancedSearch()"
-  ></button-base>
-</ng-template>
+### Differences
 
-<ng-template #excelBtn
-  ><button-base
-    [title]=""
-    [tooltip]="'Download as Excel'"
-    [isPrimary]="false"
-    [class]="['e-flat', 'advanced-search-btn']"
-    [iconClass]="'fa-light fa-file-excel'"
-    (click)="openAdvancedSearch()"
-  ></button-base>
-</ng-template>
+#### AgileHR\Talent\Talent.Web\ClientApp\src\app\settings\hiring\app-career-portal\candidate-resources\candidate-resources.component.html
 
-<ng-template #copyBtn
-  ><button-base
-    [title]=""
-    [tooltip]="'Copy'"
-    [isPrimary]="false"
-    [class]="['e-flat', 'advanced-search-btn']"
-    [iconClass]="'fa-light fa-copy'"
-    (click)="openAdvancedSearch()"
-  ></button-base>
-</ng-template>
+-   Contains a `<button-dropdown>` component with attributes `[items]`, `tooltip`, `[callback]`, and `[icon]`.
+-   Contains a `<button-base>` component with attributes `[title]`, `[callback]`, `[tooltip]`, and `(click)`.
+-   Contains multiple `<ng-template>` elements with `#printBtn`, `#pdfBtn`, `#csvBtn`, `#excelBtn`, `#copyBtn`, and `#advancedSearchBtn` identifiers, each containing a `<button-base>` component with attributes `[title]`, `[tooltip]`, `[isPrimary]`, `[class]`, `[iconClass]`, and `(click)`.
+-   Contains a `<modal-base>` component with attributes `[config]` and `[template]` for `deleteModal`, `newTypeModal`, and `editSetupModal`.
+-   Contains multiple `<ng-template>` elements with `#deleteContent`, `#newTypeContent`, and `#editSetupContent` identifiers, each containing a `<settings-table>` component with nested `<settings-row>` components.
+-   The `<settings-row>` components contain either a `<settings-uploader>` or `<input-file>` component.
 
-<ng-template #advancedSearchBtn
-  ><button-base
-    [title]=""
-    [tooltip]="'Toggle Search Filters'"
-    [isPrimary]="false"
-    [class]="['e-flat', 'advanced-search-btn']"
-    [iconClass]="'fa-light fa-cog'"
-    (click)="openAdvancedSearch()"
-  ></button-base
-></ng-template>
-<ng-template #searchbar>
-  <input-text
-    [placeholder]="'Search'"
-    [cssClass]="'search-bar'"
-  ></input-text
-></ng-template>
-<!-- delete -->
-<modal-base [config]="deleteModal" [template]="deleteContent"></modal-base>
-<ng-template #deleteContent>
-  <div class="row">
-    <div class="col-xs-12">
-      Are you sure you want to delete this resource? Once deleted, it cannot be
-      recovered.
-    </div>
-  </div>
-</ng-template>
+#### components-ng-shared\projects\mocks-talent-ng\src\app\settings\tracking\track-acp\track-acp.component.html
 
-<!-- new -->
-<modal-base [config]="newTypeModal" [template]="newTypeContent"></modal-base>
-<ng-template #newTypeContent>
-  <settings-table>
-    <settings-row [title]="'New Resource'" [description]="">
-      <settings-uploader></settings-uploader>
-    </settings-row>
-  </settings-table>
-</ng-template>
+-   Contains a `<grid-filters>` component with attributes `[centerTemplate]` and `[centerHeaderTemplate]`.
+-   Contains a `<button-dropdown-grid>` component with attributes `[items]`, `tooltip`, `[callback]`, and `[icon]`.
+-   Contains a `<button-new>` component with attributes `[tooltip]`, `(click)`, `onKeyPress`, `onKeyDown`, and `onKeyUp`.
+-   Contains an `<ejs-grid>` component with attributes `[enableAdaptiveUI]`, `[rowRenderingMode]`, `[allowPaging]`, and `[dataSource]`.
+-   Contains multiple `<ng-template>` elements with `#centerHeaderTemplate`, `#centerContent`, `#editbutton`, `#searchbar`, `#deleteContent`, `#newTypeContent`, and `#editSetupContent` identifiers.
+-   The `<ng-template>` elements contain various components such as `<button-base>`, `<input-text>`, `<settings-table>`, and `<settings-row>`.
+-   The `<settings-row>` components contain either a `<settings-uploader>` or `<input-file>` component.
 
-<!-- delete -->
-<modal-base
-  [config]="editSetupModal"
-  [template]="editSetupContent"
-></modal-base>
-<ng-template #editSetupContent>
-  <settings-table>
-    <settings-row [title]="'New Resource'" [description]="">
-      <settings-uploader></settings-uploader>
-    </settings-row>
-  </settings-table>
-</ng-template>
+### This component is implemented in the mock environment, but not visible.
+
+### Mock Screenshots
+
+![Mock Screenshot](../track-acp-mock.png)
+
+### This component is currently not implemented in production.
+
+### Prod Screenshots
+
+N/A
+
+### URL
+
+[link to the page in mock environment]http://localhost:4340/settings/tracking/application-career-portal)

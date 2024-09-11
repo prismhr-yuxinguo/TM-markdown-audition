@@ -1,39 +1,38 @@
-<page-title [title]="pageTitle"></page-title>
+# Summary of `application-templates-detail.component.md`
 
-<talent-footer
-  [nextVisible]="nextEnabled"
-  [prevVisible]="prevEnabled"
-  (prevClicked)="prevClicked()"
-  (nextClicked)="nextClicked()"
-  [saveEnabled]="saveEnabled"
-  (saveClicked)="saveForm()"
-  [saveVisible]="saveVisible"
-></talent-footer>
+## Table of Contents
 
-<ejs-tab #tab id="adaptiveTab" overflowMode="Popup">
-  <e-tabitems>
-    <e-tabitem [header]="tabHeadings[0]">
-      <ng-template #content>
-        <app-application-templates-detail-information></app-application-templates-detail-information>
-      </ng-template>
-    </e-tabitem>
-    <e-tabitem [header]="tabHeadings[1]">
-      <ng-template #content
-        ><app-application-templates-detail-definition></app-application-templates-detail-definition
-      ></ng-template>
-    </e-tabitem>
-  </e-tabitems>
-</ejs-tab>
+-   [Relative Path](#relative-path)
+-   [Summary](#summary)
+-   [Mock Screenshots](#mock-screenshots)
+-   [Prod Screenshots](#prod-screenshots)
+-   [URL](#url)
 
-<modal-base
-  [config]="unsavedChangesModal"
-  [template]="unsavedChangesContent"
-></modal-base>
+### Relative Path
 
-<ng-template #unsavedChangesContent>
-  <div class="row">
-    <div class="col-xs-12">
-      <span [innerHTML]="confirmationMessage"></span>
-    </div>
-  </div>
-</ng-template>
+-   **application-templates-detail.component.md**: `AgileHR\Talent\Talent.Web\ClientApp\src\app\settings\hiring\application-templates\application-templates-detail\application-templates-detail.component.html`
+
+### Summary
+
+-   Contains a `<page-title>` component with a `[title]` attribute bound to `pageTitle`.
+-   Contains a `<talent-footer>` component with attributes `[nextVisible]`, `[prevVisible]`, `(prevClicked)`, `(nextClicked)`, `[saveEnabled]`, `(saveClicked)`, and `[saveVisible]`.
+-   Contains an `<ejs-tab>` component with `#tab`, `id="adaptiveTab"`, and `overflowMode="Popup"`.
+-   The `<ejs-tab>` contains an `<e-tabitems>` component with two `<e-tabitem>` components.
+-   The first `<e-tabitem>` has a `[header]` attribute bound to `tabHeadings[0]` and a nested `<ng-template>` with an `<app-application-templates-detail-information>` component.
+-   The second `<e-tabitem>` has a `[header]` attribute bound to `tabHeadings[1]` and a nested `<ng-template>` with an `<app-application-templates-detail-definition>` component.
+-   Contains a `<modal-base>` component with `[config]` and `[template]` attributes bound to `unsavedChangesModal` and `unsavedChangesContent`, respectively.
+-   Contains an `<ng-template>` with `#unsavedChangesContent` and nested `<div>` elements for displaying a confirmation message.
+
+### This component is currently not implemented in mock environment.
+
+### Mock Screenshots
+
+N/A
+
+### Prod Screenshots
+
+![Prod Screenshot](./application-templates-detail-prod.png)
+
+### URL
+
+[link to the page in prod](https://piedpiper.agilehr.net/core/settings/hiring/applicationtemplates/candidateapptemplate)

@@ -1,60 +1,38 @@
-<page-title [title]="'Application Templates'"></page-title>
-<talent-grid #grid
-             [allowNew]="allowNew"
-             [allowRowSelect]="allowRowSelect"
-             (applyFilters)="applyFilters($event)"
-             (bulk)="bulk($event)"
-             [bulkActionTooltip]="bulkActionTooltip"
-             [bulkOptions]="bulkOptions"
-             [data]="data"
-             friendlyName="ApplicationTemplate"
-             exportFileName="ApplicationTemplates"
-             [filters]="filters"
-             [filtersForm]="filtersForm"
-             [initializing]="initializing"
-             (initialized)="initialized($event)"
-             [searchFields]="['candidateApplicationTemplateId', 'name']"
-             (selected)="selected($event)"
-             (filtersReset)="onClearFilter()"
-             (rowSelected)="rowSelected($event)"
-             [selectActionTooltip]="selectActionTooltip"
-             [selectOptions]="getSelectOptions"
-             idProperty="candidateApplicationTemplateId">
-  <ng-template #filtersTemplate [formGroup]="filtersForm">
-    <input-dropdown-multi [data]="templatesFilterItems"
-                        [enableFiltering]="true"
-                        [filtering]="templatesFilterFiltering"
-                        [form]="filtersForm"
-                        formControlName="templatesFilter"
-                        mode="CheckBox"
-                        ngDefaultControl
-                        placeholder="Templates"
-                        showSelectAll="true"
-                        (optionsSelected)="templatesFilterOptionsSelected($event)"></input-dropdown-multi>
-    <input-dropdown [data]="showArchiveFilterItems"
-                    [form]="filtersForm"
-                    formControlName="showArchiveFilter"
-                    ngDefaultControl
-                    placeholder="Show Archive"></input-dropdown>
-  </ng-template>
-  <e-columns> 
-    <e-column field="candidateApplicationTemplateId" headerText="ID" width="150"></e-column>
-    <e-column field="name" headerText="Template Name">
-      <ng-template *hasKey="[Keys.HiringCandidateApplicationTemplatesView, Keys.HiringCandidateApplicationTemplatesEdit]" #template let-data>
-        <ejs-tooltip #tooltip
-                      [content]="editOrViewThisTemplate">
-          <a class="grid-link disable-row-select" (click)="onLinkClicked($event, data)">{{ data.name }}</a>
-        </ejs-tooltip>
-      </ng-template>
-    </e-column>
-  </e-columns>
-</talent-grid>
-<!-- #confirmation -->
-<modal-base [config]="confirmationPopupConfig" [template]="confirmationContent"></modal-base>
-<ng-template #confirmationContent>
-  <div class="row">
-    <div class="col-xs-12">
-      Are you sure you want to {{selectedAction}}?
-    </div>
-  </div>
-</ng-template>
+# Summary of `application-templates.component.md`
+
+## Table of Contents
+
+-   [Relative Path](#relative-path)
+-   [Summary](#summary)
+-   [Mock Screenshots](#mock-screenshots)
+-   [Prod Screenshots](#prod-screenshots)
+-   [URL](#url)
+
+### Relative Path
+
+-   **application-templates.component.md**: `AgileHR\Talent\Talent.Web\ClientApp\src\app\settings\hiring\application-templates\application-templates.component.html`
+
+### Summary
+
+-   Contains a `<page-title>` component with a `[title]` attribute set to `'Application Templates'`.
+-   Contains a `<talent-grid>` component with various attributes and event bindings such as `[allowNew]`, `[allowRowSelect]`, `(applyFilters)`, `(bulk)`, `[bulkActionTooltip]`, `[bulkOptions]`, `[data]`, `friendlyName`, `exportFileName`, `[filters]`, `[filtersForm]`, `[initializing]`, `(initialized)`, `[searchFields]`, `(selected)`, `(filtersReset)`, `(rowSelected)`, `[selectActionTooltip]`, `[selectOptions]`, and `idProperty`.
+-   Contains an `<ng-template>` with `#filtersTemplate` and nested `<input-dropdown-multi>` and `<input-dropdown>` components for filtering.
+-   Contains an `<e-columns>` component with multiple `<e-column>` components.
+-   The `<e-column>` components have attributes such as `field`, `headerText`, and `width`.
+-   One of the `<e-column>` components contains an `<ng-template>` with a `*hasKey` directive and nested `<ejs-tooltip>` and `<a>` components.
+-   Contains a `<modal-base>` component with `[config]` and `[template]` attributes for `confirmationPopupConfig`.
+-   Contains an `<ng-template>` with `#confirmationContent` and nested `<div>` elements for confirmation messages.
+
+### This component is currently not implemented in the mock environment.
+
+### Mock Screenshots
+
+N/A
+
+### Prod Screenshots
+
+![Prod Screenshot](./application-templates-prod.png)
+
+### URL
+
+[link to the page in prod](https://piedpiper.agilehr.net/core/settings/hiring/applicationtemplates)

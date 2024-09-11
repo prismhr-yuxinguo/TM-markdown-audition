@@ -1,53 +1,36 @@
-<talent-footer
-  [nextVisible]="false"
-  [prevVisible]="false"
-  (saveClicked)="save()"
-  [saveVisible]="saveVisible"
-  [saveEnabled]="saveEnabled"
-></talent-footer>
+# Summary of `settings.component.md`
 
-<ng-container [formGroup]="appMessageSettingForm">
-  <settings-table>
-    <!--<settings-row
-      [title]="'Display Job Alerts Section?'"
-      [description]="'Allow candidates to sign up for job alerts/notifications of when you publish requisitions.'"
-      [required]=""
-    >
-      <toggle-switch
-        [form]="appMessageSettingForm"
-        formControlName="allowJobAlerts"
-      ></toggle-switch>
-    </settings-row>-->
-    <settings-row
-      [title]="'Application and Career Messages'"
-      [description]=""
-      [required]=""
-    >
-      <input-dropdown
-        [placeholder]="'Application and Career Messages'"
-        [value]="1"
-        (optionSelected)="changed($event)"
-        [data]="messageList"
-      ></input-dropdown>
-    </settings-row>
+## Table of Contents
 
-    <fieldset [formGroup]="messageEditForm" id="custom_editor">
-      <settings-row [title]="'Body '" [required]="currentMessageType == 'disclaimer' ? false : true" [type]="'WYSIWYG'">
-        <input-rich-text
-          id="messageBody"
-          #messageBody
-          [toolbarSettings]="editorTools"
-          [height]="'300'"
-          [form]="messageEditForm"
-          formControlName="messageBody"
-        ></input-rich-text>
-        <p
-          *ngIf="isValidationFailed"
-          class="error-message custom-error-message"
-        >
-          {{ validationMessage }}
-        </p>
-      </settings-row>
-    </fieldset>
-  </settings-table>
-</ng-container>
+-   [Relative Path](#relative-path)
+-   [Summary](#summary)
+-   [Mock Screenshots](#mock-screenshots)
+-   [Prod Screenshots](#prod-screenshots)
+-   [URL](#url)
+
+### Relative Path
+
+-   **settings.component.md**: `path/to/settings.component.md`
+
+### Summary
+
+-   Contains an `<app-sts-general-settings>` component with an `[activeTabIndex]` attribute.
+-   Contains a commented-out `<ejs-tab>` component with `id="adaptiveTab"` and `overflowMode="Popup"`.
+-   The commented-out `<ejs-tab>` contains an `<e-tabitems>` component with two `<e-tabitem>` components.
+-   The first `<e-tabitem>` has a `[header]` attribute and a nested `<ng-template>` with an `<app-sts-general-settings>` component.
+-   The second `<e-tabitem>` has a `[header]` attribute and a nested `<ng-template>` with an `<app-sts-approver-setup>` component.
+-   Contains a section allowing candidates to sign up for job alerts/notifications when requisitions are published.
+
+### This component is currently not implemented in production or mock environment.
+
+### Mock Screenshots
+
+N/A
+
+### Prod Screenshots
+
+N/A
+
+### URL
+
+N/A

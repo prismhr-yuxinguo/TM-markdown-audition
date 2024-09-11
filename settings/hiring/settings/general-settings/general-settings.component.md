@@ -1,163 +1,62 @@
-<talent-footer
-  [nextVisible]="false"
-  [prevVisible]="false"
-  (saveClicked)="save()"
-  [saveEnabled]="saveEnabled"
-  [saveVisible]="isEditable"
->
-</talent-footer>
+# Differences between `general-settings.component.html` and `track-sett.component.html`
 
-<fieldset [formGroup]="hiringSettingForm" [disabled]="!isEditable">
-  <settings-table>
-    <settings-row
-      [title]="'Collect SSN On Hire?'"
-      [description]="
-        'Toggle On/Off the ability for admins and hiring managers to manually enter a new hire\'s Social Security Number on the Hire detail screen.'
-      "
-      [required]=""
-    >
-      <toggle-switch
-        [form]="hiringSettingForm"
-        formControlName="collectSSNOnHire"
-        [enabled]="isEditable"
-      ></toggle-switch>
-    </settings-row>
+## Table of Contents
 
-    <settings-row
-      [title]="'Collect Date of Birth On Hire?'"
-      [description]="
-        'Toggle On/Off the ability for admins and hiring managers to manually enter a new hire\'s Date of Birth on the Hire Detail screen.'
-      "
-      [required]=""
-    >
-      <toggle-switch
-        [form]="hiringSettingForm"
-        formControlName="collectDOBOnHire"
-        [enabled]="isEditable"
-      ></toggle-switch>
-    </settings-row>
+-   [Relative Paths](#relative-paths)
+-   [Differences](#differences)
+-   [Prod Screenshots](#prod-screenshots)
+-   [Mock Screenshots](#mock-screenshots)
+-   [URL](#url)
 
-    <settings-row [title]="'Collect SSN On Offer Letter?'" [description]="" [required]="">
-      <toggle-switch
-        [form]="hiringSettingForm"
-        formControlName="collectSSNOnOfferLetter"
-        [enabled]="isEditable"
-      ></toggle-switch>
-    </settings-row>
+### Relative Paths
 
-    <settings-row [title]="'Collect Date of Birth On Offer Letter?'" [description]="" [required]="">
-      <toggle-switch
-        [form]="hiringSettingForm"
-        formControlName="collectDOBOnOfferLetter"
-        [enabled]="isEditable"
-      ></toggle-switch>
-    </settings-row>
+-   **general-settings.component.html**: `AgileHR\Talent\Talent.Web\ClientApp\src\app\settings\hiring\settings\general-settings\general-settings.component.html`
+-   **track-sett.component.html**: `components-ng-shared\projects\mocks-talent-ng\src\app\settings\tracking\track-sett\track-sett.component.html`
 
-    <!-- <settings-row
-      [title]="'Allow Internal Candidates to Apply?'"
-      [description]="
-        'Allow current employees to submit job applications from the Employee Dashboard.'
-      "
-      [required]=""
-    >
-      <toggle-switch
-        [form]="hiringSettingForm"
-        formControlName="allowInternalCandidate"
-      ></toggle-switch>
-    </settings-row> -->
+### Differences
 
-    <!-- <settings-row
-      [title]="'Utilize Basic Minimum Qualifications?'"
-      [description]="'Allow assessments to define BMQ questions.'"
-      [required]=""
-    >
-      <toggle-switch
-        [form]="hiringSettingForm"
-        formControlName="allowBasicMinimumQualification"
-      ></toggle-switch>
-    </settings-row> -->
+#### AgileHR\Talent\Talent.Web\ClientApp\src\app\settings\hiring\settings\general-settings\general-settings.component.html
 
-    <!-- <settings-row
-      [title]="'Allow Hiring Manager Rating?'"
-      [description]="
-        'Allow hiring manager to provide a candidate rating when candidates are routed to them.'
-      "
-      [required]=""
-    >
-      <toggle-switch
-        [form]="hiringSettingForm"
-        formControlName="allowHiringManagerRating"
-      ></toggle-switch>
-    </settings-row> -->
+-   Contains a `<talent-footer>` component with attributes `[nextVisible]`, `[prevVisible]`, `(saveClicked)`, `[saveEnabled]`, and `[saveVisible]`.
+-   Contains a `<fieldset>` element with a `[formGroup]` attribute bound to `hiringSettingForm` and `[disabled]` bound to `!isEditable`.
+-   The `<fieldset>` contains a `<settings-table>` component with multiple `<settings-row>` components.
+-   The `<settings-row>` components have attributes `[title]`, `[description]`, and `[required]`.
+-   The `<settings-row>` components contain `<toggle-switch>` components with attributes `[form]`, `formControlName`, and `[enabled]`.
+-   Contains a `<settings-row>` component with `[title]` set to `'Employment Page URL'` and a nested `<input-text>` component with attributes `[placeholder]`, `[form]`, and `formControlName`.
 
-    <!-- <settings-row
-      [title]="'Allow Automated Candidate Routing?'"
-      [description]="
-        'Allow system to automatically route candidates based on position workflow.'
-      "
-      [required]=""
-    >
-      <toggle-switch
-        [form]="hiringSettingForm"
-        formControlName="allowAutomatedCandidateRouting"
-      ></toggle-switch>
-    </settings-row>
+#### components-ng-shared\projects\mocks-talent-ng\src\app\settings\tracking\track-sett\track-sett.component.html
 
-    <settings-row
-      [title]="'Position Description Feedback Available?'"
-      [description]="
-        'Turn on/off position description feedback routing functionality.'
-      "
-      [required]=""
-    >
-      <toggle-switch
-        [form]="hiringSettingForm"
-        formControlName="jobDescriptionApproval"
-      ></toggle-switch>
-    </settings-row>
+-   Contains a `<page-title>` component with a `[title]` attribute set to `'Tracking Settings'`.
+-   Contains an `<ejs-tab>` component with `id="tab_default"` and `heightAdjustMode="Auto"`.
+-   The `<ejs-tab>` contains an `<e-tabitems>` component with multiple `<e-tabitem>` components.
+-   Each `<e-tabitem>` component has a `[header]` attribute and a nested `<ng-template>` with various `<settings-table>` and `<settings-row>` components.
+-   The `<settings-row>` components have attributes `[title]`, `[description]`, and `[required]`.
+-   The `<settings-row>` components contain `<toggle-switch>` components.
+-   Contains a `<settings-row>` component with `[title]` set to `'Employment Page URL'` and a nested `<input-text>` component with a `[placeholder]` attribute.
+-   Contains a `<settings-row>` component with `[title]` set to `'Allow Requisition Routing?'` and a nested `<toggle-switch>` component.
+-   Contains a `<message-panel>` component with attributes `[title]` and `[content]`.
+-   Contains a `<grid-filters>` component with attributes `[centerTemplate]` and `[centerHeaderTemplate]`.
+-   Contains an `<ng-template>` with `#centerHeaderTemplate` and a nested `<div>` with class `custom-toolbar`.
+-   The `<div>` contains nested `<div>` elements with classes `custom-toolbar__wrapper`, `custom-toolbar__lc`, and `custom-toolbar__rc`.
+-   The `<div>` contains nested `<button-base>` components with attributes `[tooltip]`, `[class]`, `[iconClass]`, `(click)`, `onKeyPress`, `onKeyDown`, and `onKeyUp`.
+-   Contains an `<ng-template>` with `#centerContent` and a nested `<ejs-grid>` component with attributes `[enableAdaptiveUI]`, `[rowRenderingMode]`, `[dataSource]`, `[allowSorting]`, and `[allowRowDragAndDrop]`.
+-   The `<ejs-grid>` contains an `<e-columns>` component with a single `<e-column>` component.
+-   The `<e-column>` component has attributes `field` and `headerText`.
+-   Contains a `<modal-base>` component with `[config]` and `[template]` attributes for `editModal` and `editSetupContent`, respectively.
+-   Contains an `<ng-template>` with `#editSetupContent` and a nested `<settings-table>` component with multiple `<settings-row>` components.
+-   The `<settings-row>` components have attributes `[title]` and `[description]`.
+-   The `<settings-row>` components contain various input components such as `<input-dropdown>` and `<input-dropdown-multi>`.
 
-    <settings-row
-      [title]="'Include Credit Report Statement?'"
-      [description]=""
-      [required]=""
-    >
-      <toggle-switch
-        [form]="hiringSettingForm"
-        formControlName="allowCreditReport"
-      ></toggle-switch>
-    </settings-row>
+### Prod Screenshots
 
-    <settings-row
-      [title]="
-        'Include \'I would like to obtain a copy of the credit report\' option?'
-      "
-      [description]=""
-      [required]=""
-    >
-      <toggle-switch
-        [form]="hiringSettingForm"
-        formControlName="allowCopyOfCreditReport"
-      ></toggle-switch>
-    </settings-row> -->
+![Prod Screenshot](./general-settings-prod.png)
 
-    <settings-row
-      [title]="'Require Salary Range for Postings '"
-      [description]="'Checking this box will make salary range a required field when posting a requisition.'"
-      [required]=""
-    >
-      <toggle-switch
-        [form]="hiringSettingForm"
-        formControlName="requireSalaryRangeForPostings"
-        [enabled]="isEditable && !isIndeedEnabled"
-      ></toggle-switch>
-    </settings-row>
+### Mock Screenshots
 
-    <settings-row [title]="'Employment Page URL'" [description]="" [required]="">
-      <input-text
-        [placeholder]="'Employment Page URL'"
-        [form]="hiringSettingForm"
-        formControlName="employmentPageUrl"
-      ></input-text>
-    </settings-row>
-  </settings-table>
-</fieldset>
+![Mock Screenshot](./track-sett-mock.png)
+
+### URL
+
+[link to the page in prod](https://piedpiper.agilehr.net/core/settings/hiring/settings)
+
+[link to the page in mock environment](http://localhost:4340/settings/tracking/tacking-settings)

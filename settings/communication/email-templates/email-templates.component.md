@@ -1,121 +1,53 @@
-<page-title [title]="'Email Templates'"></page-title>
-<talent-grid #grid
-             [allowBulkActions]="false"
-             [allowFiltering]="true"
-             [allowNew]="allowNew"
-             [allowNewDisabled]="allowNewDisabled"
-             [allowRowSelect]="false"
-             (applyFilters)="applyFilters($event)"
-             [data]="emailTemplatesList"
-             exportFileName="Email Templates"
-             [filters]="filters"
-             [filtersForm]="filtersForm"
-             [friendlyName]="'Email Template'"
-             [initializing]="initializing"
-             [loading]="loading"
-             (rowSelected)="rowSelected()"
-             [searchFields]="['templateName', 'module', 'type', 'subject', 'trigger', 'triggerCondition']"
-             [selectActionTooltip]="selectActionTooltip"
-             (selected)="selected($event)">
-  <ng-template #filtersTemplate [formGroup]="filtersForm">
-    <!-- TODO: Un-comment once need to apply module filter -->
-    <!-- <input-dropdown-multi
-      [data]="moduleFilterItems"
-      [enableFiltering]="true"
-      [filtering]="moduleFilterFiltering"
-      [form]="filtersForm"
-      formControlName="moduleFilter"
-      mode="CheckBox"
-      ngDefaultControl
-      placeholder="Module"
-      showSelectAll="true"
-    ></input-dropdown-multi> -->
-    <input-dropdown-multi [data]="typeFilterItems"
-                          [enableFiltering]="true"
-                          [filtering]="typeFilterFiltering"
-                          [form]="filtersForm"
-                          formControlName="typeFilter"
-                          mode="CheckBox"
-                          ngDefaultControl
-                          placeholder="Type"
-                          showSelectAll="true"                          
-                          (optionsSelected)="typeFilterOptionsSelected($event)"
-                          ></input-dropdown-multi>
-    <input-dropdown [data]="showArchiveFilterItems"
-                    [form]="filtersForm"
-                    formControlName="showArchiveFilter"
-                    ngDefaultControl
-                    placeholder="Show Archive"></input-dropdown>
+# Differences between `email-temp.component.html (Mocks)` and `email-templates.component.html (Production)`
 
-  </ng-template>
-  <e-columns>
-    <e-column field="templateName" headerText="Template Name">
-      <ng-template *hasKey="[Keys.CoreEmailTemplatesView, Keys.CoreEmailTemplatesEdit]" #template let-data>
-        <ejs-tooltip #tooltip
-                     [content]="editOrViewTooltip">
-          <a class="grid-link disable-row-select" (click)="onLinkClicked($event, data)">{{ data.templateName }}</a>
-        </ejs-tooltip>
-      </ng-template>
-    </e-column>
-    <e-column field="module" headerText="Module" [valueAccessor]="moduleValueAccessor"></e-column>
-    <e-column field="type" headerText="Type"></e-column>
-    <e-column field="subject" headerText="Subject"></e-column>
-    <e-column field="trigger" headerText="Trigger"></e-column>
-    <e-column field="triggerCondition" headerText="Trigger Condition"></e-column>
-    <e-column field=""
-              textAlign="center"
-              [template]="dropdownActionbutton"
-              width="80px"></e-column>
-  </e-columns>
-</talent-grid>
+## Table of Contents
 
-<modal-base
-  [config]="archievePopupConfig"
-  [template]="archievePopupContent"
-></modal-base>
-<ng-template #archievePopupContent>
-  <div class="row">
-    <div class="col-xs-12">
-      Are you sure you want to Archive this Email Template?
-    </div>
-  </div>
-</ng-template>
+-   [Relative Paths](#relative-paths)
+-   [Differences](#differences)
+-   [Prod Screenshots](#prod-screenshots)
+-   [Mock Screenshots](#mock-screenshots)
+-   [URL](#url)
 
-<modal-base
-  [config]="unarchievePopupConfig"
-  [template]="unarchievePopupContent"
-></modal-base>
-<ng-template #unarchievePopupContent>
-  <div class="row">
-    <div class="col-xs-12">
-      Are you sure you want to Unarchive this Email Template?
-    </div>
-  </div>
-</ng-template>
+### Relative Paths
 
-<ng-template #dropdownActionbutton let-data>
-  <button-dropdown-grid 
-    [items]="data.isSystem ? data.selectOptions : data.dropOptions"
-    [tooltip]="selectActionTooltip"
-    (onSelect)="selected($event, data)"
-  ></button-dropdown-grid>
-</ng-template>
+-   **email-temp.component.html**: `components-ng-shared\projects\mocks-talent-ng\src\app\settings\email-temp\email-temp.component.html`
+-   **email-templates.component.html**: `AgileHR\Talent\Talent.Web\ClientApp\src\app\settings\communication\email-templates\email-templates.component.html`
 
-<modal-drawer 
- [open]="showEmailPopup"
- [showButton]="false" 
- [template]="addEditEmailTemplate">
-</modal-drawer>
-<ng-template #addEditEmailTemplate>
-  <talent-new-edit-email-template 
-  (closeModal)="closeEmailPopup($event)"
-  (refreshList)="getAllEmailTemplates()"
-  [isNew]="isNewRecord"
-  [isViewOnly]="isViewOnly"
-  [selectedEmailTemplate]="selectedEmailTemplate"
-  [isSystemCreated]="selectedEmailTemplate?.isSystem ? true : false"
-  [usedCandidateRejectionTypeIds]="usedCandidateRejectionTypeIds"
-  [usedCandidateStatusTypeIds]="usedCandidateStatusTypeIds"
-  >
-  </talent-new-edit-email-template>
-</ng-template>
+### Differences
+
+#### components-ng-shared\projects\mocks-talent-ng\src\app\settings\email-temp\email-temp.component.html (Mock Environment)
+
+-   Contains a `<page-title>` component with attribute `[title]`.
+-   Contains a `<grid-filters>` component with attributes `[centerTemplate]` and `[centerHeaderTemplate]`.
+-   Contains an `<ng-template>` with `#centerHeaderTemplate` and nested `<div>` with class `custom-toolbar`.
+-   Contains an `<ng-template>` with `#centerContent` and nested `<ejs-grid>` component with attributes `[enableAdaptiveUI]`, `[rowRenderingMode]`, `[allowPaging]`, `[dataSource]`, and `(toolbarClick)`.
+-   Contains multiple `<e-column>` components with fields `Module`, `Type`, `Subject`, `Trigger`, and `TriggerCondition`.
+-   Contains a `<modal-base>` component with attributes `[config]` and `[template]` for `newTemplateModal`, `editTemplateModal`, and `deleteTemplateModal`.
+-   Contains an `<ng-template>` with `#newTemplateContent` and nested `<settings-table>` component.
+-   Contains an `<ng-template>` with `#editTemplateContent` and nested `<settings-table>` component.
+-   Contains an `<ng-template>` with `#deleteContent` and nested `<div>` with class `row`.
+
+#### AgileHR\Talent\Talent.Web\ClientApp\src\app\settings\communication\email-templates\email-templates.component.html (Production)
+
+-   Contains a `<talent-grid>` component with attributes `[allowBulkActions]`, `[allowFiltering]`, `[allowNew]`, `[allowNewDisabled]`, `[allowRowSelect]`, `[data]`, `exportFileName`, `[filters]`, `[filtersForm]`, `[friendlyName]`, `[initializing]`, `[loading]`, `[searchFields]`, `[selectActionTooltip]`, `(applyFilters)`, `(rowSelected)`, and `(selected)`.
+-   Contains an `<ng-template>` with `#filtersTemplate` and nested `<input-dropdown-multi>` components.
+-   Contains an `<ng-template>` with `#template` and nested `<ejs-tooltip>` and `<a>` components.
+-   Contains multiple `<e-column>` components with fields `templateName`, `module`, `type`, `subject`, `trigger`, and `triggerCondition`.
+-   Contains a `<modal-base>` component with attributes `[config]` and `[template]` for `archievePopupConfig` and `unarchievePopupConfig`.
+-   Contains an `<ng-template>` with `#dropdownActionbutton` and nested `<button-dropdown-grid>` component.
+-   Contains a `<modal-drawer>` component with attributes `[open]`, `[showButton]`, and `[template]`.
+-   Contains an `<ng-template>` with `#addEditEmailTemplate` and nested `<talent-new-edit-email-template>` component.
+
+### Production Screenshots
+
+![Prod Screenshot](./email-templates-prod.png)
+
+### Mock Screenshots
+
+![Mock Screenshot](./email-temp-mock.png)
+
+### URL
+
+[link to the page in prod](https://piedpiper.agilehr.net/core/settings/communication/email-templates)
+
+[link to the page in mock environment](http://localhost:4340/settings/email-templates)

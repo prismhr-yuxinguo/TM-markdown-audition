@@ -1,104 +1,59 @@
-<div class="modal-drawer__head">
-  {{ emailTemplateHeading }}
-  <div class="modal-drawer__cta">
-    <button-base [title]="'Cancel'"
-                 [isPrimary]="false"
-                 (onClick)="ClosePopup()"></button-base>
-    <button-base *ngIf="!isViewOnly"
-                 [title]="'Save'"
-                 [isPrimary]="true"
-                 (click)="saveEmailTemplate()"
-                 [visible]="!isSaving"></button-base>
-  </div>
-</div>
-<div class="card card--split" [formGroup]="emailTemplateForm">
-  <div class="split__col">
-    <settings-table>
-      <settings-row [title]="'Name'" [required]="true" *ngIf="!isSystemCreated || isNew">
-        <input-text [form]="emailTemplateForm" formControlName="name" [required]="true">
-        </input-text>
-      </settings-row>
-      <settings-row [title]="'Subject'" [required]="true">
-        <input-text [placeholder]="'Subject'" [form]="emailTemplateForm" formControlName="subject" [required]="true">
-        </input-text>
-      </settings-row>
-      <settings-row [title]="'Email Message'"
-                    [required]="true"
-                    [type]="'WYSIWYG'">
-        <input-rich-text id="defaultRTE"
-                         cssClass="rte-override"
-                         (created)='onCreate()'
-                         [form]="emailTemplateForm"
-                         formControlName="emailMessage"
-                         [toolbarSettings]="editorTools"></input-rich-text>
-      </settings-row>
-      <settings-row [title]="'Attachment'"
-                    [description]="'Accepted file types: pdf, doc, docx, txt | Max size: 3MB'"
-                    *ngIf="!isSystemCreated || isNew">
-        <div class="offer-letter__name" *ngIf="emailTemplateForm.controls.attachments.value">
-          <i class="fa-solid fa-paperclip"></i>
-          <span style="font-weight: 600;">Attachment:</span> {{emailTemplateForm.controls.attachments.value}}
-          <i class="fa-solid fa-trash custom-cursor" (click)="clearFile(fileInput)"></i>
-        </div>
-        <input #fileInput
-               type="file"
-               (change)="handleUpload($event)"
-               accept=".pdf, .doc, .docx, .txt"
-               class="custom-file-input"
-               [disabled]="isFileInputDisabled">
+# Differences between `email-temp.component.html` and `new-edit-email-template.component.html`
 
-      </settings-row>
-      <settings-row [title]="'Template Use'"
-                    *ngIf="!isSystemCreated || isNew"
-                    [description]="'Sets the way this template is used: General, Candidate Status or Candidate Dismissal'">
-        <input-dropdown [data]="templateUseList"
-                        [placeholder]="'Template Use'"
-                        [form]="emailTemplateForm"
-                        formControlName="templateUse"
-                        (optionSelected)="onDropDownChange($event)"></input-dropdown>
-      </settings-row>
-      <settings-row [title]="'Status'" [required]="true" *ngIf="emailTemplateForm.get('templateUse').value === 'candidateStatus'">
-        <input-dropdown-multi (optionsSelected)="setTemplateUseValues($event)"
-                              [form]="emailTemplateForm"
-                              formControlName="status"
-                              [data]="candidateStatusesList"
-                              [enableFiltering]="true"
-                              mode="CheckBox"
-                              ngDefaultControl
-                              showSelectAll="true"
-                              placeholder="Status"></input-dropdown-multi>
+## Table of Contents
 
-      </settings-row>
-      <settings-row [title]="'Dismissal'" [required]="true" *ngIf="emailTemplateForm.get('templateUse').value === 'candidateDismissal'">
-        <input-dropdown-multi (optionsSelected)="setTemplateUseValues($event)"
-                              [form]="emailTemplateForm"
-                              formControlName="dismissal"
-                              [data]="dismissalReasonsList"
-                              [enableFiltering]="true"
-                              mode="CheckBox"
-                              ngDefaultControl
-                              showSelectAll="true"
-                              placeholder="Dismissal"></input-dropdown-multi>
-      </settings-row>
-    </settings-table>
+-   [Relative Paths](#relative-paths)
+-   [Differences](#differences)
+-   [Prod Screenshots](#prod-screenshots)
+-   [Mock Screenshots](#mock-screenshots)
+-   [URL](#url)
 
-  </div>
-  <div class="split__col offer-letter">
-    <div class="offer-letter__title" style="align-self: center;">Email Preview</div>
-    <div class="offer-letter__body">
-      <div class="offer-letter__body-title">
-        <div class="offer-letter__name"><span style="font-weight: 600;">To:</span> {{emailTemplateForm.controls.name.value}}</div>
-        <br />
-        <div class="offer-letter__name"><span style="font-weight: 600;">Email Subject:</span> {{emailTemplateForm.controls.subject.value}}</div>
-        <br />
-        <div class="offer-letter__name"><span style="font-weight: 600;">Attachment:</span> {{emailTemplateForm.controls.attachments.value}}</div>
-        <br />
-      </div>
-      <div class="offer-letter__message">
-        <div class="viewing-First-Candidate"> You are currently viewing the first candidate in the mailing list.</div>
-        <div class="disabled" [innerHTML]="previewHtml"></div>
-      </div>
-    </div>
+### Relative Paths
 
-  </div>
-</div>
+-   **email-temp.component.html (Mock Environment)**: `components-ng-shared\projects\mocks-talent-ng\src\app\settings\email-temp\email-temp.component.html`
+-   **new-edit-email-template.component.html (Production)**: `AgileHR\Talent\Talent.Web\ClientApp\src\app\settings\communication\email-templates\new-edit-email-template\new-edit-email-template.component.html`
+
+### Differences
+
+#### email-temp.component.html (Mock Environment)
+
+-   Contains a `<page-title>` component with a `[title]` attribute set to `'Email Templates'`.
+-   Contains a `<grid-filters>` component with `[centerTemplate]` and `[centerHeaderTemplate]` attributes.
+-   Contains a `<div>` with class `custom-toolbar` inside an `<ng-template>` with `#centerHeaderTemplate`.
+-   Contains a `<button-dropdown-grid>` component with `[items]`, `tooltip`, `[callback]`, and `[icon]` attributes inside the `custom-toolbar` div.
+-   Contains a `<button-base>` component with `[title]`, `[tooltip]`, `[isPrimary]`, and `(click)` attributes inside the `custom-toolbar` div.
+-   Contains an `<ejs-grid>` component with `[enableAdaptiveUI]`, `[rowRenderingMode]`, `[allowPaging]`, `[dataSource]`, and `(toolbarClick)` attributes.
+-   Contains multiple `<e-column>` components inside the `<ejs-grid>` component.
+-   Contains multiple `<ng-template>` elements with `#editbutton`, `#evaluateStatus`, `#itemStatus`, and `#searchbar`.
+-   Contains multiple `<modal-base>` components with `[config]` and `[template]` attributes.
+-   Contains multiple `<settings-table>` components inside `<ng-template>` elements with `#newTemplateContent`, `#editTemplateContent`, and `#deleteContent`.
+
+#### new-edit-email-template.component.html (Production)
+
+-   Contains a `{{ emailTemplateHeading }}` interpolation.
+-   Contains a `<div>` with class `modal-drawer__cta`.
+-   Contains a `<button-base>` component with `[title]`, `[isPrimary]`, and `(onClick)` attributes inside the `modal-drawer__cta` div.
+-   Contains a `<div>` with class `card card--split` and `[formGroup]` attribute.
+-   Contains multiple `<settings-row>` components inside a `<settings-table>` component with `[title]`, `[required]`, `[description]`, and `[type]` attributes.
+-   Contains multiple `<input-text>` components with `[form]`, `formControlName`, `[required]`, and `[placeholder]` attributes inside the `<settings-row>` components.
+-   Contains an `<input-rich-text>` component with `id`, `cssClass`, `(created)`, `[form]`, `formControlName`, and `[toolbarSettings]` attributes inside a `<settings-row>` component.
+-   Contains an `<input-dropdown>` component with `[data]`, `[placeholder]`, `[form]`, `formControlName`, and `(optionSelected)` attributes inside a `<settings-row>` component.
+-   Contains an `<input-dropdown-multi>` component with `(optionsSelected)`, `[form]`, `formControlName`, `[data]`, `[enableFiltering]`, `mode`, `ngDefaultControl`, `showSelectAll`, and `placeholder` attributes inside a `<settings-row>` component.
+-   Contains a `<div>` with class `offer-letter__title` and `offer-letter__body`.
+-   Contains multiple `<div>` elements with class `offer-letter__name` and interpolation bindings to `emailTemplateForm.controls` values.
+-   Contains a `<div>` with class `viewing-First-Candidate` and text content.
+-   Contains a `<div>` with class `disabled` and `[innerHTML]` attribute.
+
+### Prod Screenshots
+
+![Prod Screenshot](./new-edit-email-template-prod.png)
+
+### Mock Screenshots
+
+![Mock Screenshot](../email-temp-mock.png)
+
+### URL
+
+[link to the page in prod](https://piedpiper.agilehr.net/core/settings/communication/email-templates)
+
+[link to the page in mock environment](http://localhost:4340/email-temp)

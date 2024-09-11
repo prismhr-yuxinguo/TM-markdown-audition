@@ -1,123 +1,46 @@
-<page-title [title]="'Billing Information'"></page-title>
-<talent-footer (customButtonClicked)="toggleModal(true)"
-               [customButtons]="customButtons"
-               [nextVisible]="false"
-               [prevVisible]="false"
-               (saveClicked)="save()"
-               [saveEnabled]="true"
-               [saveVisible]="true"></talent-footer>
+# Summary of `billing-information.component.html`
 
-<ejs-tab id="element">
-  <e-tabitems>
-    <e-tabitem>
-      <ng-template #headerText>
-        <div>
-          User Billing Information
-        </div>
-      </ng-template>
-      <ng-template #content>
-        <ng-container [formGroup]="billInfoForm">
-          <settings-table>
-            <settings-row [title]="'Account Email'" [required]="true">
-              <input-text [placeholder]="" [form]="billInfoForm" formControlName="email"></input-text>
-            </settings-row>
-            <settings-row [title]="'Name on Card'" [required]="true">
-              <input-text [placeholder]="" [form]="billInfoForm" formControlName="name"></input-text>
-            </settings-row>
-            <settings-row [title]="'Card Number'" [description]="" [required]="isNew" *ngIf="!isNew">
-              <input-text [placeholder]="" [form]="billInfoForm" formControlName="cardNumber" [enabled]="isNew"></input-text>
-            </settings-row>
-            <settings-row [title]="'Card Number'" [description]="" [required]="isNew" *ngIf="isNew">
-              <ejs-maskedtextbox form="billInfoForm" formControlName="cardNumber" mask="0000 0000 0000 0000" placeholder="Card Number" floatLabelType="Auto" required="isNew"></ejs-maskedtextbox>
-              <p *ngIf="billInfoForm.controls.cardNumber.invalid && billInfoForm.controls.cardNumber.touched" class="error-message masked-value-error-message">
-                This field is required
-              </p>
-            </settings-row>
-            <settings-row [title]="'Expiration Month'" [required]="true">
-              <input-text [placeholder]="" [required]="true" [form]="billInfoForm" formControlName="expMonth"></input-text>
-            </settings-row>
-            <settings-row [title]="'Expiration Year'" [required]="true">
-              <input-text [placeholder]="" [required]="true" [form]="billInfoForm" formControlName="expYear"></input-text>
-              <p *ngIf="expirationDateErrors() | async" class="error-message custom-error-message"> {{ expirationDateErrors() | async }}</p>
-            </settings-row>
-            <settings-row [title]="'CVC'" [required]="isNew" *ngIf="!isNew">
-              <input-text [placeholder]="" [form]="billInfoForm" formControlName="cvc" [enabled]="isNew"></input-text>
-            </settings-row>
-            <settings-row [title]="'CVC'" [description]="" [required]="isNew" *ngIf="isNew">
-              <ejs-maskedtextbox form="billInfoForm" formControlName="cvc" mask="0000" placeholder="Card Number" floatLabelType="Auto" required="isNew"></ejs-maskedtextbox>
-              <p *ngIf="billInfoForm.controls.cvc.invalid && billInfoForm.controls.cvc.touched" class="error-message masked-value-error-message">
-                This field is required
-              </p>
-            </settings-row>
+## Table of Contents
 
-            <settings-row [title]="'Billing Address 1'" [required]="true">
-              <input-text [placeholder]="" [form]="billInfoForm" formControlName="addressLine1"></input-text>
-            </settings-row>
-            <settings-row [title]="'Billing Address 2'">
-              <input-text [placeholder]="" [form]="billInfoForm" formControlName="addressLine2"></input-text>
-            </settings-row>
-            <settings-row [title]="'Billing City'" [required]="true">
-              <input-text [placeholder]="" [form]="billInfoForm" formControlName="city"></input-text>
-            </settings-row>
-            <settings-row [title]="'Billing State'" [description]="" [required]="true">
-              <input-dropdown [data]="states"
-                              [form]="billInfoForm" formControlName="state"
-                              [placeholder]="'State'"
-                              [enableFiltering]="true"
-                              [filtering]="true"
-                              [required]="true"></input-dropdown>
-            </settings-row>
-            <settings-row [title]="'Billing Zip'" [required]="true">
-              <ejs-maskedtextbox form="billInfoForm" formControlName="postalCode" mask="000000000" placeholder="" floatLabelType="Auto" required="isNew"></ejs-maskedtextbox>
-              <p *ngIf="billInfoForm.controls.postalCode.invalid && billInfoForm.controls.postalCode.touched" class="error-message masked-value-error-message">
-                This field is required
-              </p>
-            </settings-row>
-          </settings-table>
-        </ng-container>
-      </ng-template>
-    </e-tabitem>
+-   [Relative Path](#relative-path)
+-   [Summary](#summary)
+-   [Mock Screenshots](#mock-screenshots)
+-   [Prod Screenshots](#prod-screenshots)
+-   [URL](#url)
 
-    <e-tabitem>
-      <ng-template #headerText>
-        <div>
-          Transaction History
-        </div>
-      </ng-template>
-      <ng-template #content>
-        <talent-grid #grid
-                     [allowBulkActions]="false"
-                     [allowFiltering]="false"
-                     [allowNew]="false"
-                     [allowRowSelect]="false"
-                     [data]="invoiceDetails"
-                     exportFileName="Transaction History"
-                     friendlyName="InvoiceDetails"
-                     [searchFields]="searchFields"
-                     [selectActionTooltip]="selectActionTooltip"
-                     [selectOptions]="selectOptions"
-                     (selected)="selected($event)"
-                     (sortDir)="sortDirChanged($event)">
-          <e-columns>
-            <e-column field="number" headerText="Invoice #" maxWidth="150" [sortComparer]="emptySortComparer"></e-column>
-            <e-column field="created" headerText="Invoice Date" [sortComparer]="emptySortComparer"></e-column>
-            <e-column field="description" headerText="Description" [sortComparer]="emptySortComparer"></e-column>
-            <e-column field="amount" headerText="Amount" [sortComparer]="emptySortComparer" format='C2'></e-column>
-          </e-columns>
-        </talent-grid>
-      </ng-template>
-    </e-tabitem>
-  </e-tabitems>
-</ejs-tab>
+### Relative Path
 
-<!-- #confirmation -->
-<modal-base [config]="confirmationPopupConfig" [template]="confirmationContent"></modal-base>
-<ng-template #confirmationContent>
-  <div class="row">
-    <div class="col-xs-12">
-      {{ confirmationMessage}}
-    </div>
-  </div>
-</ng-template>
+-   **billing-information.component.html**: `AgileHR\Talent\Talent.Web\ClientApp\src\app\settings\hiring\billing-information\billing-information.component.html`
 
+### Summary
 
+-   Contains a `<page-title>` component with a `[title]` attribute set to `'Billing Information'`.
+-   Contains a `<talent-footer>` component with attributes `(customButtonClicked)`, `[customButtons]`, `[nextVisible]`, `[prevVisible]`, `(saveClicked)`, `[saveEnabled]`, and `[saveVisible]`.
+-   Contains an `<ejs-tab>` component with `id="element"`.
+-   The `<ejs-tab>` contains an `<e-tabitems>` component with two `<e-tabitem>` components.
+-   The first `<e-tabitem>` has two `<ng-template>` elements: one with `#headerText` containing a `<div>` with the text `User Billing Information`, and another with `#content` containing a `<ng-container>` with a `[formGroup]` attribute bound to `billInfoForm`.
+-   Inside the `<ng-container>`, there is a `<settings-table>` component with multiple `<settings-row>` components.
+-   The `<settings-row>` components have attributes such as `[title]`, `[description]`, `[required]`, and `*ngIf`.
+-   The `<settings-row>` components contain various input components such as `<input-text>`, `<ejs-maskedtextbox>`, and `<input-dropdown>`.
+-   The input components have attributes such as `[placeholder]`, `[form]`, `formControlName`, `[enabled]`, `mask`, `floatLabelType`, and `[required]`.
+-   Some `<settings-row>` components contain `<p>` elements with `*ngIf` directives for displaying error messages.
+-   The second `<e-tabitem>` has two `<ng-template>` elements: one with `#headerText` containing a `<div>` with the text `Transaction History`, and another with `#content` containing a `<talent-grid>` component.
+-   The `<talent-grid>` component has attributes such as `[allowBulkActions]`, `[allowFiltering]`, `[allowNew]`, `[allowRowSelect]`, `[data]`, `exportFileName`, `friendlyName`, `[searchFields]`, `[selectActionTooltip]`, `[selectOptions]`, `(selected)`, and `(sortDir)`.
+-   The `<talent-grid>` contains an `<e-columns>` component with multiple `<e-column>` components.
+-   The `<e-column>` components have attributes such as `field`, `headerText`, `maxWidth`, `[sortComparer]`, and `format`.
+-   Contains a `<modal-base>` component with `[config]` and `[template]` attributes bound to `confirmationPopupConfig` and `confirmationContent`, respectively.
+-   Contains an `<ng-template>` with `#confirmationContent` and nested `<div>` elements for displaying a confirmation message.
+
+### This component is currently not implemented in production or mock environment.
+
+### Mock Screenshots
+
+N/A
+
+### Prod Screenshots
+
+N/A
+
+### URL
+
+N/A
