@@ -38,7 +38,7 @@ N/A
 
 ### Mock Screenshots
 
-![Mock Screenshot](/assets/img/dash-ac-mock.png)
+![Mock Screenshot](dash-appr-mock.png)
 
 ### URL
 

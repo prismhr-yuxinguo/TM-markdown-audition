@@ -28,11 +28,11 @@
 
 ### Production Screenshots
 
-![Prod Screenshot](/assets/img/dash-ac-mock.png)
+![Prod Screenshot](dash-cpv-prod.png)
 
 ### Mock Screenshots
 
-![Mock Screenshot](/assets/img/dash-cpv-mock.png)
+![Mock Screenshot](dash-cpv-mock.png)
 
 ### URL
 

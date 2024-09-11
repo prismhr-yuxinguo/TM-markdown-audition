@@ -40,11 +40,11 @@
 
 ### Prod Screenshots
 
-![Prod Screenshot](/assets/img/dash-ac-prod.png)
+![Prod Screenshot](dash-ac-prod.png)
 
 ### Mock Screenshots
 
-![Mock Screenshot](/assets/img/dash-ac-mock.png)
+![Mock Screenshot](dash-ac-mock.png)
 
 ### URL
 

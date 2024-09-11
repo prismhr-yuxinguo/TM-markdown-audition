@@ -35,7 +35,7 @@
 
 ### Mock Screenshots
 
-![Mock Screenshot](/assets/img/dash-ac-mock.png)
+![Mock Screenshot](dash-spline-mock.png)
 
 ### URL
 
